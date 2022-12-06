@@ -1,8 +1,12 @@
 # Original Versions:
-## Mod name: VU-Pixels_pimped_gunmaster
+## Mod name: RemoveFlagsVehicles
+## "Authors": breaknix
+
+# Modded Version:
+## Mod name: VU-Pixels_nomore_jets
 ## "Authors": iamadeadpixel
 
-# Code based on VU-MajorsMod MajorVictory87
-- This mod will override all the default gunmaster kill settings.
-- Most of the Gun master weapons are tweaked with more bullits
-- This is de 1st release, this is a WIP version !
+# Based on Breaknix sample mod to remove flags.
+This mod does not removed flag, but it removes all Jets on XP maps
+(Gulf of oman excluded, that is work in progress)
+IT also removes the spawn of the gunship and the dropship
