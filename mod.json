@@ -1,8 +1,8 @@
 {
     "Name": "Gunmaster-kills",
     "Description": "Pimped Gun master settings",
-    "Version": "1.0.5",
-    "Reason": "Fresh setup", 
+    "Version": "1.0.6",
+    "Reason": "Full working: Defaults - Shotguns - Handguns", 
     "Authors": [ "iamadeadpixel" ],
     "HasVeniceEXT": true,
     "Dependencies": {
