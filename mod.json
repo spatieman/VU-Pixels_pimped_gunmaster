@@ -1,12 +1,12 @@
 {
     "Name": "Gunmaster-kills",
     "Description": "Pimped Gun master settings",
-    "Version": "1.0.0",
+    "Version": "1.0.5",
     "Reason": "Fresh setup", 
     "Authors": [ "iamadeadpixel" ],
     "HasVeniceEXT": true,
     "Dependencies": {
         "veniceext": "^1.0.0"
     },
-    "Tags": [ "pixel's-gunmaster" ]
+    "Tags": [ "pixels-gunmaster" ]
 }
