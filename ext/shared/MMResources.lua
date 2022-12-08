@@ -85,8 +85,14 @@ function MMResources:__init()
 	self.MMResources["m1911"]["Instance"] = '46557D84-5C38-6642-E71A-E2430DE0C41B'
 
 	self.MMResources["m9"] = {}
-	self.MMResources["m9"]["Partition"] = '94D0FEE8-E685-11DF-805B-F4FA4757ED08'
-	self.MMResources["m9"]["Instance"] = 'A21D7964-7F3B-5D82-A414-2ABDE6644BFC'
+	self.MMResources["m9"]["Partition"] = '3080B817-349A-47EB-AEFB-C6128456021F'
+	self.MMResources["m9"]["Instance"] = '663C6022-6D1C-4930-9D1C-C934252D181B'
+
+	self.MMResources["m9sup"] = {}
+	self.MMResources["m9sup"]["Partition"] = '94D0FEE8-E685-11DF-805B-F4FA4757ED08'
+	self.MMResources["m9sup"]["Instance"] = 'A21D7964-7F3B-5D82-A414-2ABDE6644BFC'
+--	self.MMResources["m9sup"]["Partition"] = '3080B817-349A-47EB-AEFB-C6128456021F'
+--	self.MMResources["m9sup"]["Instance"] = '663C6022-6D1C-4930-9D1C-C934252D181B'
 
 	self.MMResources["g17"] = {}
 	self.MMResources["g17"]["Partition"] = '3B3F9879-EB4B-11DF-8AA6-AE0344995412'

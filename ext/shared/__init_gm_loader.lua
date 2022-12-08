@@ -58,7 +58,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[16].killsNeeded = 1	-- GM_M320 LVG
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[17].killsNeeded = 1	-- GM_Knife 
 
--- Light Weight rotation (2) (nop)
+-- Light Weight rotation (2)
 
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_Glock17_Premium

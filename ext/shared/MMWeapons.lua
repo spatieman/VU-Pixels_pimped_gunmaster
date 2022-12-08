@@ -8,7 +8,6 @@ function MMWeapons:Write(instance)
 -- -----------------------------------------
 -- SHOTGUNS --
 
-
 	if (mmResources:IsLoaded('spas12')) then
 		mmResources:SetLoaded('spas12', false)
 
@@ -116,7 +115,7 @@ function MMWeapons:Write(instance)
 --		fireData.shot.projectileData:MakeWritable()
 --		fireData.shot.projectileData = ebxEditUtils:GetWritableInstance(mmResources:GetInstance('12gfrag'))
 
-		dprint('Changed M40A5...')
+		dprint('Changed M40A5 (GM) ...')
 	end
 --
 
@@ -128,37 +127,138 @@ function MMWeapons:Write(instance)
 -- -----------------------------------------
 -- Handguns --
 
--- M9 need ammo fix
+	if (mmResources:IsLoaded('gm_mp443')) then
+		mmResources:SetLoaded('gm_mp443', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/MP443/MP443_GM')
+		local fireData = ebxEditUtils:GetWritableContainer(weaponBP, 'Object.WeaponFiring.PrimaryFire')
+		local bulletData = ebxEditUtils:GetWritableContainer(weaponBP, 'Object.WeaponFiring.PrimaryFire.shot.projectileData')
+
+		self:OverrideGMMagSize(SoldierWeaponData(weaponBP.object), 250, -1)
+
+		fireData.fireLogic.rateOfFire = 900
+		dprint('Changed Mp443 (GM)...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('gm_m93r')) then
+		mmResources:SetLoaded('gm_m93r', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/M93R/M93R_GM')
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+
+		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
+		fireData:MakeWritable()
+		fireData.shot.initialSpeed.z = 380
+		fireData.shot.numberOfBulletsPerBurst = 25
+		fireData.fireLogic.rateOfFire = 900
+		fireData.fireLogic.rateOfFireForBurst = 900
+		dprint('Changed M93r (GM)...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('gm_magnum44') ) then
+		mmResources:SetLoaded('gm_magnum44', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/Taurus44/Taurus44_GM')
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Magnum .44 (GM)...')
+	end
+
+-- -----------------------------------------
 
 	if (mmResources:IsLoaded('m9')) then
 		mmResources:SetLoaded('m9', false)
 
-		self:OverrideGMMagSize(weaponData, 200, -1)
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m9'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
---		local fireData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m9'), 'object.WeaponFiring.PrimaryFire')
---		fireData.ammo.magazineCapacity = 250
---		fireData.fireLogic.rateOfFire = 900
---
---		local fireDataGM = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m9'), 'object.WeaponModifierData.4.Modifiers.2')
---		fireDataGM.magazineCapacity = 250
-		dprint('Changed M9...')
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed M9 (GM) ...')
 	end
 --
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('m9sup')) then
+		mmResources:SetLoaded('m9sup', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m9sup'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed M9 Silencer (GM) ...')
+	end
+
+-- -----------------------------------------
+
+-- inc silencer
+-- G18 --
 
 	if (mmResources:IsLoaded('g17')) then
 		mmResources:SetLoaded('g17', false)
 
-		self:OverrideGMMagSize(weaponData, 200, -1)
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('g17'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
---		local fireData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m9'), 'object.WeaponFiring.PrimaryFire')
---		fireData.ammo.magazineCapacity = 250
---		fireData.fireLogic.rateOfFire = 900
---
---		local fireDataGM = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m9'), 'object.WeaponModifierData.4.Modifiers.2')
---		fireDataGM.magazineCapacity = 250
-		dprint('Changed G17 ...')
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed G17 (GM) ...')
 	end
---
+
+-- ----------------------------------------------
+
+	if (mmResources:IsLoaded('m1911')) then
+		mmResources:SetLoaded('m1911', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m1911'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed M1911 (GM) ...')
+	end
+
+-- ----------------------------------------------
+
+	if (mmResources:IsLoaded('mp412rex')) then
+		mmResources:SetLoaded('mp412rex', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mp412rex'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed MP412 Rex (GM) ...')
+	end
+
+-- ----------------------------------------------
+-- Need fix ?? --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- -----------------------------------------
@@ -172,13 +272,7 @@ function MMWeapons:Write(instance)
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
---		self:ResetSwayData(ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.weaponSway'))
-
---		fireData.fireLogic.rateOfFire = fireData.fireLogic.rateOfFire + 300
---		fireData.ammo.magazineCapacity = 250
---		fireData.ammo.numberOfMagazines = -1
-
-		dprint('Changed AS-Val...')
+		dprint('Changed AS-Val (GM) ...')
 	end
 
 --
@@ -191,23 +285,8 @@ function MMWeapons:Write(instance)
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-
---		fireData.weaponDispersion.standDispersion.minAngle = 3
---		fireData.weaponDispersion.standDispersion.maxAngle = 3
---		fireData.weaponDispersion.standDispersion.increasePerShot = 5
---		fireData.weaponDispersion.crouchDispersion.minAngle = 2.5
---		fireData.weaponDispersion.crouchDispersion.maxAngle = 2.5
---		fireData.weaponDispersion.crouchDispersion.increasePerShot = 5
---		fireData.weaponDispersion.proneDispersion.minAngle = 1.5
---		fireData.weaponDispersion.proneDispersion.maxAngle = 1.5
---		fireData.weaponDispersion.proneDispersion.increasePerShot = 5
---
---		fireData.ammo.magazineCapacity = 250
---		fireData.ammo.numberOfMagazines = -1
---		fireData.shot.numberOfBulletsPerShell = 5
-		fireData.fireLogic.rateOfFire = fireData.fireLogic.rateOfFire + 250
-
-		dprint('Changed PP-2000...')
+--		fireData.fireLogic.rateOfFire = fireData.fireLogic.rateOfFire + 250
+		dprint('Changed PP-2000 (GM) ...')
 	end
 
 
@@ -275,7 +354,7 @@ function MMWeapons:Write(instance)
 		fireData.fireLogic.rateOfFire = 3500
 		fireData.fireLogic.rateOfFireForBurst = 7500
 
-		dprint('Changed Famas...')
+		dprint('Changed Famas (GM) ...')
 	end
 --
 
@@ -302,27 +381,11 @@ function MMWeapons:Write(instance)
 		fireData.ammo.magazineCapacity = 250
 		fireData.ammo.numberOfMagazines = -1
 
-		dprint('Changed L96...')
+		dprint('Changed L96 (GM) ...')
 	end
 
 --
 
-	if (mmResources:IsLoaded('m1911')) then
-		mmResources:SetLoaded('m1911', false)
-
-		local fireData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m1911'), 'object.WeaponFiring.PrimaryFire')
-		fireData.ammo.magazineCapacity = 250
-		fireData.ammo.numberOfMagazines = -1
-		fireData.fireLogic.rateOfFire = 900
-
-		local fireDataGM = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('m1911'), 'object.WeaponModifierData.3.Modifiers.2')
-		fireData.ammo.magazineCapacity = 250
-		fireData.ammo.numberOfMagazines = -1
-
-		dprint('Changed M1911...')
-	end
-
---
 
 --
 
@@ -333,7 +396,7 @@ function MMWeapons:Write(instance)
 		fireData.fireLogic.rateOfFire = 900
 		fireData.ammo.magazineCapacity = 250
 		fireData.ammo.numberOfMagazines = -1
-		dprint('Changed M240...')
+		dprint('Changed M240 (GM) ...')
 	end
 
 	if (mmResources:IsLoaded('m240_extended')) then
@@ -375,7 +438,7 @@ function MMWeapons:Write(instance)
 
 		fireData.ammo.magazineCapacity = 250
 		fireData.ammo.numberOfMagazines = -1
-		dprint('Changed M249...')
+		dprint('Changed M249 (GM) ...')
 	end
 
 
@@ -411,7 +474,7 @@ function MMWeapons:Write(instance)
 		fireData.ammo.magazineCapacity = 250
 		fireData.ammo.numberOfMagazines = -1
 		fireData.fireLogic.reloadTime = 3.7
-		dprint('Changed M60...')
+		dprint('Changed M60 (GM) ...')
 	end
 --
 
@@ -438,33 +501,13 @@ function MMWeapons:Write(instance)
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 		fireData.shot.numberOfBulletsPerBurst = 4
 
-		dprint('Changed MK11...')
+		dprint('Changed MK11 (GM) ...')
 	end
 
 
 --
 
 
-	if (mmResources:IsLoaded('mp412rex') and mmResources:IsLoaded('defibvolabel') and mmResources:IsLoaded('12gfrag')) then
-		mmResources:SetLoaded('mp412rex', false)
-		mmResources:SetLoaded('defibvolabel', false)
-
-		local voData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.VoiceOverInfo')
-		voData.labels:clear()
-		voData.labels:add(ebxEditUtils:GetWritableInstance(mmResources:GetInstance('defibvolabel')))
-
-		local fireData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.WeaponFiring.PrimaryFire')
-		fireData.ammo.magazineCapacity = 250
-		fireData.ammo.numberOfMagazines = -1
-		fireData.fireLogic.rateOfFire = 900
-
-		fireData.shot.projectileData = ebxEditUtils:GetWritableInstance(mmResources:GetInstance('12gfrag'))
-
-		local fireDataGM = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.WeaponModifierData.1.Modifiers.2')
-		fireDataGM.magazineCapacity = -1
-
-		dprint('Changed MP412 Rex...')
-	end
 
 --
 
@@ -494,7 +537,7 @@ function MMWeapons:Write(instance)
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ebxEditUtils:GetWritableInstance(mmResources:GetInstance('12gfrag'))
 
-		dprint('Changed M98...')
+		dprint('Changed M98 (GM) ...')
 	end
 
 --
@@ -525,7 +568,7 @@ function MMWeapons:Write(instance)
 		fireData.fireLogic.rateOfFire = fireData.fireLogic.rateOfFire + 250
 		fireData.shot.numberOfBulletsPerShell = 6
 
-		dprint('Changed PDW-R...')
+		dprint('Changed PDW-R (GM) ...')
 	end
 
 --
@@ -561,7 +604,7 @@ function MMWeapons:Write(instance)
 
 		fireData.shot.numberOfBulletsPerBurst = 3
 
-		dprint('Changed QBU-88...')
+		dprint('Changed QBU-88 (GM) ...')
 	end
 
 --
@@ -576,7 +619,7 @@ function MMWeapons:Write(instance)
 		fireData.fireLogic.reloadTime = 0
 		fireData.ammo.magazineCapacity = -1
 		fireData.ammo.numberOfMagazines = -1
-		dprint('Changed SMAW...')
+		dprint('Changed SMAW (GM) ...')
 	end
 
 --
@@ -592,7 +635,7 @@ if (mmResources:IsLoaded('rpg7')) then
 		fireData.ammo.magazineCapacity = -1
 		fireData.ammo.numberOfMagazines = -1
 
-		dprint('Changed RPG7...')
+		dprint('Changed RPG7 (GM) ...')
 	end
 
 --
@@ -622,7 +665,7 @@ if (mmResources:IsLoaded('rpg7')) then
 
 		fireData.sound = SoundPatchAsset(mmResources:GetInstance('40mmlvgsound'))
 
-		dprint('Changed SKS...')
+		dprint('Changed SKS (GM) ...')
 	end
 
 --
@@ -654,7 +697,7 @@ if (mmResources:IsLoaded('rpg7')) then
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 
-		dprint('Changed SV98...')
+		dprint('Changed SV98 (GM) ...')
 	end
 
 --
@@ -689,7 +732,7 @@ if (mmResources:IsLoaded('rpg7')) then
 		fireData.shot.projectileData = ProjectileEntityData(mmResources:GetInstance('12gfrag'))
 		fireData.shot.numberOfBulletsPerBurst = 3
 
-		dprint('Changed SVD...')
+		dprint('Changed SVD (GM) ...')
 	end
 
 
@@ -735,49 +778,6 @@ if (mmResources:IsLoaded('rpg7')) then
 -- -----------------------------------------
 
 
-	if (mmResources:IsLoaded('gm_mp443')) then
-		mmResources:SetLoaded('gm_mp443', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/MP443/MP443_GM')
-		local fireData = ebxEditUtils:GetWritableContainer(weaponBP, 'Object.WeaponFiring.PrimaryFire')
-		local bulletData = ebxEditUtils:GetWritableContainer(weaponBP, 'Object.WeaponFiring.PrimaryFire.shot.projectileData')
-
-		self:OverrideGMMagSize(SoldierWeaponData(weaponBP.object), 250, -1)
-
-		fireData.fireLogic.rateOfFire = 900
-		dprint('Changed Mp443 (GM)...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('gm_m93r')) then
-		mmResources:SetLoaded('gm_m93r', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/M93R/M93R_GM')
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-
-		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
-		fireData:MakeWritable()
-		fireData.shot.initialSpeed.z = 380
-		fireData.shot.numberOfBulletsPerBurst = 25
-		fireData.fireLogic.rateOfFire = 900
-		fireData.fireLogic.rateOfFireForBurst = 900
-		dprint('Changed M93r (GM)...')
-	end
--- -----------------------------------------
-
-
-	if (mmResources:IsLoaded('gm_magnum44') ) then
-		mmResources:SetLoaded('gm_magnum44', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/Taurus44/Taurus44_GM')
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Magnum .44 (GM)...')
-	end
 -- -----------------------------------------
 
 
@@ -790,7 +790,7 @@ if (mmResources:IsLoaded('rpg7')) then
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed PP-19 Bizon...')
+		dprint('Changed PP-19 Bizon (GM) ...')
 	end
 -- -----------------------------------------
 
@@ -901,7 +901,7 @@ if (mmResources:IsLoaded('rpg7')) then
 	end
 -- -----------------------------------------
 
-
+-- plops more LVG's --
 
 	if (mmResources:IsLoaded('40mmlvg') and mmResources:IsLoaded('40mmlvgfire')) then
 		mmResources:SetLoaded('40mmlvg', false)
@@ -921,7 +921,7 @@ if (mmResources:IsLoaded('rpg7')) then
 	end
 -- -----------------------------------------
 
--- pimped  but low ammo 
+-- pimped  but set with lower ammo --
 
 	if (mmResources:IsLoaded('mp7') and mmResources:IsLoaded('40mmlvg_grenade')) then
 		mmResources:SetLoaded('mp7', false)
@@ -937,7 +937,7 @@ if (mmResources:IsLoaded('rpg7')) then
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 
-		dprint('Changed MP7 ... (pimped ) ...')
+		dprint('Changed MP7 (GM) ... (pimped ) ...')
 	end
 
 --
@@ -949,11 +949,11 @@ if (mmResources:IsLoaded('rpg7')) then
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed MP5K...')
+		dprint('Changed MP5K (GM) ...')
 	end
 
 --
-
+-- Pimped -
 	if (mmResources:IsLoaded('ump45') and mmResources:IsLoaded('40mmsmk_grenade')) then
 		mmResources:SetLoaded('ump45', false)
 
@@ -962,26 +962,11 @@ if (mmResources:IsLoaded('rpg7')) then
 		local bulletData = BulletEntityData(mmResources:GetInstance('40mmsmk_grenade'))
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
---		fireData.weaponDispersion.standDispersion.minAngle = 2
---		fireData.weaponDispersion.standDispersion.maxAngle = 2
---		fireData.weaponDispersion.standDispersion.increasePerShot = 5
---		fireData.weaponDispersion.crouchDispersion.minAngle = 1.25
---		fireData.weaponDispersion.crouchDispersion.maxAngle = 1.25
---		fireData.weaponDispersion.crouchDispersion.increasePerShot = 5
---		fireData.weaponDispersion.proneDispersion.minAngle = 0.5
---		fireData.weaponDispersion.proneDispersion.maxAngle = 0.5
---		fireData.weaponDispersion.proneDispersion.increasePerShot = 5
-
 		self:OverrideGMMagSize(SoldierWeaponData(weaponBP.object), 250, -1)
 
---		fireData.ammo.magazineCapacity = 250
---		fireData.ammo.numberOfMagazines = -1
---		fireData.fireLogic.rateOfFire = fireData.fireLogic.rateOfFire + 250
---		fireData.shot.numberOfBulletsPerShell = 3
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
-
-		dprint('Changed UMP45 (pimped) ...')
+		dprint('Changed UMP45 (GM)  (pimped) ...')
 	end
 
 
