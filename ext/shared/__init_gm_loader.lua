@@ -1,19 +1,8 @@
--- load resource list
-mmResources = require('__shared/MMResources')
-mmCustomResources = require('__shared/MMCustomResources')
-mmCustomResources:RegisterResources(mmResources)
-
--- modules
-mmWeapons = require('__shared/MMWeapons')
-
-mmResources:AddLoadHandler(mmCustomResources, mmCustomResources.Write)
-mmResources:AddLoadHandler(mmWeapons, mmWeapons.Write)
-mmResources:RegisterInstanceLoadHandlers()  
-
+-- This wil set the kills needed for each Gun Master preset
 -- --------------------------------
 
-    local partition_gunmaster = Guid ("F71EE45B-1BB0-4442-A46D-5B079A722230") -- 
-     local instance_gunmaster = Guid ("F0D72AE2-9243-43D4-9070-E97B53430FB8") --
+    local partition_gunmaster = Guid ("F71EE45B-1BB0-4442-A46D-5B079A722230")
+     local instance_gunmaster = Guid ("F0D72AE2-9243-43D4-9070-E97B53430FB8")
  
  ResourceManager:RegisterInstanceLoadHandler(partition_gunmaster, instance_gunmaster, function(loadedInstance)
      loadedInstance = GunMasterKillCounterEntityData(loadedInstance)
@@ -79,7 +68,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[17].killsNeeded = 1 	-- XP2/GM_Knife_Razor
 
 
--- Heavy gear  (3) (nop)
+-- Heavy gear  (3)
 
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_MP12REX_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_T44_Premium
@@ -100,7 +89,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[17].killsNeeded = 1 	-- GM_Knife_Razor
 
 
--- pistol run (4) (nop)
+-- pistol run (4)
 
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_MP443_Premium
@@ -115,7 +104,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_Knife_Razor
 
 
--- Snipers heaven (5) (nop)
+-- Snipers heaven (5)
 
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_M9_Silenced_Premium
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_Glock17_Silenced_Premium
@@ -133,7 +122,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[14].killsNeeded = 1 	-- GM_Crossbow_Bolt_Premium
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[15].killsNeeded = 1 	-- GM_Knife_Razor
 
--- US arms race (6) (nop)
+-- US arms race (6)
 
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_M1911_Premium
@@ -148,7 +137,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_SMAW_Premium
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[12].killsNeeded = 1 	-- GM_Knife_Razor
 
--- RU arms race (7) (nop)
+-- RU arms race (7)
 
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_MP443_Premium
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_MP12REX_Premium
@@ -163,7 +152,7 @@ mmResources:RegisterInstanceLoadHandlers()
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_RPG7_Premium
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[12].killsNeeded = 1 	-- GM_Knife_Razor
 
--- EU arms race (8) (nop)
+-- EU arms race (8)
 
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[1].killsNeeded = 1 	-- GM_Glock17_Premium
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[2].killsNeeded = 1 	-- GM_M93_Premium
