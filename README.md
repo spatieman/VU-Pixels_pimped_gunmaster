@@ -2,7 +2,7 @@
 ## Mod name: VU-Pixels_pimped_gunmaster
 ## "Authors": iamadeadpixel
 
-# Version 1.0.8 (09-12-2022)
+# Version 1.0.10
 # Code based on VU-MajorsMod MajorVictory87
 - This mod will override all the default gunmaster kill settings.
 - Most of the Gun master weapons are tweaked with more bullits
@@ -17,5 +17,11 @@
 - All shotguns are tweaked
 - All Handguns are tweaked
 - WIP: Snipers.
-- WIP: RPG/ SMAW
 - WIP weapon tweaks
+#
+- M60 Tweaked, Shoots HE crosbow bolts !
+- RPG/SMAW ,acts like heavy C4 on explosion !
+- C4, insane damage giver.
+
+- All weapons tweaked.
+- WIP: The loader to set the kill amount
