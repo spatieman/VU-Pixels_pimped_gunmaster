@@ -24,3 +24,4 @@
 - C4, insane damage giver.
 
 - All weapons tweaked.
+- to do: cleaning out resourced ...
