@@ -1,8 +1,0 @@
--- global funcs and utils
-require('__shared/Utils')
-
--- load resource list
-mmResources = require('__shared/MMResources')
-
--- modules
-GMWeapons_weapons = require('__shared/GMWeapons_weapons')
