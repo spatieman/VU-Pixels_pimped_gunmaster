@@ -24,4 +24,3 @@
 - C4, insane damage giver.
 
 - All weapons tweaked.
-- WIP: The loader to set the kill amount
