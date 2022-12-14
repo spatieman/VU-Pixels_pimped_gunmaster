@@ -7,9 +7,13 @@ function MMResources:__init()
 
 -- -------------------------------------------
 
-	self.MMResources["gunmaster"] = {}
-	self.MMResources["gunmaster"]["Partition"] = 'F71EE45B-1BB0-4442-A46D-5B079A722230'
-	self.MMResources["gunmaster"]["Instance"] = 'F0D72AE2-9243-43D4-9070-E97B53430FB8'
+	self.MMResources["gunmaster1"] = {}
+	self.MMResources["gunmaster1"]["Partition"] = 'F71EE45B-1BB0-4442-A46D-5B079A722230'
+	self.MMResources["gunmaster1"]["Instance"] = 'F0D72AE2-9243-43D4-9070-E97B53430FB8'
+
+	self.MMResources["gunmaster2"] = {}
+	self.MMResources["gunmaster2"]["Partition"] = 'F58C83A7-C753-4360-A9C0-4E44C79836F8'
+	self.MMResources["gunmaster2"]["Instance"] = '2D869E35-5D5F-4256-B876-C85911F0A7D6'
 
 -- -------------------------------------------
 -- SHOTGUNS --
