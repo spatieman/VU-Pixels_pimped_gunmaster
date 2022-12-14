@@ -11,6 +11,7 @@
 - Deleting unused resources.
 - Repimped scar-l hehe
 - Todo: Fixing the map kill counter, for some reason it only works once on standard rotation.
+- More tweaks comming.. (i hope)
 
 - USE THIS IN GUN MASTER ONLY !
 - things can get wonky in other gamemodes ,specialy when u switch back to gunmaster mode.
