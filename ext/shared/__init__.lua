@@ -14,7 +14,8 @@ mmCustomResources = require('__shared/MMCustomResources')
 mmCustomResources:RegisterResources(mmResources)
 
 -- modules
-GMMap_loader = require('__shared/GMMap_loader')
+GMMap_loader1 = require('__shared/GMMap_loader1')
+GMMap_loader2 = require('__shared/GMMap_loader2')
 GMWeapons_weapons = require('__shared/GMWeapons_weapons')
 GMWeapons_handguns = require('__shared/GMWeapons_handguns')
 GMWeapons_shotguns = require('__shared/GMWeapons_shotguns')
