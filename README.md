@@ -2,13 +2,15 @@
 ## Mod name: VU-Pixels_pimped_gunmaster
 ## "Authors": iamadeadpixel
 
-# Version 1.0.11
+# Version 1.0.12
 # Code based on VU-MajorsMod MajorVictory87
 - This mod will override all the default gunmaster kill settings.
 - Most of the Gun master weapons are tweaked with more bullits
 #
 # Update: 13-12-2022
 - Deleting unused resources.
+- Repimped scar-l hehe
+- Todo: Fixing the map kill counter, for some reason it only works once on standard rotation.
 
 - USE THIS IN GUN MASTER ONLY !
 - things can get wonky in other gamemodes ,specialy when u switch back to gunmaster mode.
