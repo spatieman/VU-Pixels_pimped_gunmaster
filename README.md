@@ -2,11 +2,16 @@
 ## Mod name: VU-Pixels_pimped_gunmaster
 ## "Authors": iamadeadpixel
 
-# Version 1.0.13
+# Version 1.0.14
 # Code based on VU-MajorsMod MajorVictory87
 - This mod will override all the default gunmaster kill settings.
 - Most of the Gun master weapons are tweaked with more bullits
 #
+# Update: 15-12-2022
+- Added all shotgun ammo (own ammo instance file)
+- minor weapon tweaks
+- trying to fix the Scar-L ammo mod.
+
 # Update: 14-12-2022
 - Deleting unused resources.
 - Repimped scar-l hehe

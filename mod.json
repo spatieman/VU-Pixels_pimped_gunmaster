@@ -1,8 +1,8 @@
 {
     "Name": "Gunmaster-kills",
     "Description": "Pimped Gun master settings",
-    "Version": "1.0.13",
-    "Reason": "Map rotation kills fixed", 
+    "Version": "1.0.14",
+    "Reason": "Added all shotgun ammo -more tweaks", 
     "Authors": [ "iamadeadpixel" ],
     "HasVeniceEXT": true,
     "Dependencies": {
