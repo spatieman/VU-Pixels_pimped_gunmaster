@@ -66,10 +66,10 @@ if (mmResources:IsLoaded('smawexp')) then
 		fireData:MakeWritable()
 
 		fireData.blastDamage = 3000.0 -- Default = 112
-		fireData.blastRadius = 20.0 -- Default = 4
+		fireData.blastRadius = 10.0 -- Default = 4
 		fireData.blastImpulse = 8000.0 -- Default = 2000
 		fireData.shockwaveDamage = 500.0 -- Default = 1
-		fireData.shockwaveRadius = 20.0 -- Default = 10
+		fireData.shockwaveRadius = 10.0 -- Default = 10
 		fireData.shockwaveImpulse = 4000.0 -- Default = 500
 		fireData.shockwaveTime = 0.25 -- Default = 0.25
 
@@ -86,10 +86,10 @@ if (mmResources:IsLoaded('rpg7exp')) then
 		fireData:MakeWritable()
 
 		fireData.blastDamage = 3000.0 -- Default = 112
-		fireData.blastRadius = 20.0 -- Default = 4
+		fireData.blastRadius = 10.0 -- Default = 4
 		fireData.blastImpulse = 8000.0 -- Default = 2000
 		fireData.shockwaveDamage = 500.0 -- Default = 1
-		fireData.shockwaveRadius = 20.0 -- Default = 10
+		fireData.shockwaveRadius = 10.0 -- Default = 10
 		fireData.shockwaveImpulse = 4000.0 -- Default = 500
 		fireData.shockwaveTime = 0.25 -- Default = 0.25
 

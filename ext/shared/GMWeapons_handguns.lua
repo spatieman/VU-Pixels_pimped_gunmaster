@@ -2,6 +2,39 @@ class "GMWeapons_handguns"
 
 function GMWeapons_handguns:Write(instance)
 -- -----------------------------------------
+-- MP412 Rex Pimped --
+	if (mmResources:IsLoaded('mp412rex') and mmResources:IsLoaded('defibvolabel') and mmResources:IsLoaded('12gfrag')) then
+		mmResources:SetLoaded('mp412rex', false)
+		mmResources:SetLoaded('defibvolabel', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mp412rex'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		local voData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.VoiceOverInfo')
+		voData.labels:clear()
+		voData.labels:add(ebxEditUtils:GetWritableInstance(mmResources:GetInstance('defibvolabel')))
+
+		local fireData = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.WeaponFiring.PrimaryFire')
+		fireData.ammo.magazineCapacity = -1
+		fireData.fireLogic.rateOfFire = 900
+
+		fireData.shot.projectileData = ebxEditUtils:GetWritableInstance(mmResources:GetInstance('12gfrag'))
+
+		local fireDataGM = ebxEditUtils:GetWritableContainer(mmResources:GetInstance('mp412rex'), 'object.WeaponModifierData.1.Modifiers.2')
+		fireDataGM.magazineCapacity = -1
+		self:OverrideGMMagSize(weaponData, 50, -1)
+
+		dprint('Changed Handguns: MP412 Rex (GM) Pimped ...')
+	end
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
 -- Handguns --
 
 	if (mmResources:IsLoaded('gm_mp443')) then
@@ -102,18 +135,6 @@ function GMWeapons_handguns:Write(instance)
 		dprint('Changed Handguns:  M1911 (GM) ...')
 	end
 
--- ----------------------------------------------
-
-	if (mmResources:IsLoaded('mp412rex')) then
-		mmResources:SetLoaded('mp412rex', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mp412rex'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Handguns:  MP412 Rex (GM) ...')
-	end
 
 -- ----------------------------------------------------
 

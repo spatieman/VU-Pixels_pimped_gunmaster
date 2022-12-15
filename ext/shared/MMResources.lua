@@ -41,6 +41,71 @@ function MMResources:__init()
 	self.MMResources["870mcs"]["Partition"] = '50F905EA-E32B-11DF-931B-DC6D3E613E0F'
 	self.MMResources["870mcs"]["Instance"] = 'B76D7661-C812-64C2-322C-A269E40A1CD7'
 
+-- Shotgun ammo --
+
+-- this is shotgun ammo --
+	self.MMResources["12gfragexp"] = {}
+	self.MMResources["12gfragexp"]["Partition"] = '2A6FCD72-5842-41B4-AC48-56BAACA506A3'
+	self.MMResources["12gfragexp"]["Instance"]  = '035DDB32-FB47-41CC-9F59-47D52F2CD685' --VED
+
+	self.MMResources["12gfrag"] = {} -- Used for MP412REX
+	self.MMResources["12gfrag"]["Partition"] = '2A6FCD72-5842-41B4-AC48-56BAACA506A3'
+	self.MMResources["12gfrag"]["Instance"] = 'EF265029-3291-4544-8081-ABFFA09D3D96' --BED
+
+	self.MMResources["12gfraggrav"] = {}
+	self.MMResources["12gfraggrav"]["Partition"] = '2A6FCD72-5842-41B4-AC48-56BAACA506A3'
+	self.MMResources["12gfraggrav"]["Instance"] = 'EF265029-3291-4544-8081-ABFFA09D3D96' --BED
+-- ---
+
+	self.MMResources["12gfrag_pump_exp"] = {}
+	self.MMResources["12gfrag_pump_exp"]["Partition"] = '2FE9F5E2-A883-4C9A-BD26-0A343B698481'
+	self.MMResources["12gfrag_pump_exp"]["Instance"] = '1D58A59C-4073-428F-A4CC-3B943E3AE182' --VED
+
+	self.MMResources["12gfrag_pump_grav"] = {}
+	self.MMResources["12gfrag_pump_grav"]["Partition"] = '2FE9F5E2-A883-4C9A-BD26-0A343B698481'
+	self.MMResources["12gfrag_pump_grav"]["Instance"] = 'ED005E6A-A489-4C85-BA52-67EB7A4458FB' --BED
+-- ---
+
+	self.MMResources["buck_grav"] = {}
+	self.MMResources["buck_grav"]["Partition"] = '730EC837-C59D-4E96-AFD5-01F3BDA2AE69'
+	self.MMResources["buck_grav"]["Instance"] = '50ACD447-1BCD-4363-AB61-312840D5D28B' --BED
+-- ---
+
+	self.MMResources["flech_grav"] = {}
+	self.MMResources["flech_grav"]["Partition"] = '6EF70B63-0941-456A-85A9-0C97484CEC15'
+	self.MMResources["flech_grav"]["Instance"] = 'A4FA6C84-FD58-4A84-9CC1-82EA53ADE4E0' --BED
+-- ---
+
+	self.MMResources["slug_grav"] = {}
+	self.MMResources["slug_grav"]["Partition"] = '377829C0-F684-4092-AC46-E7E609D0DE7C'
+	self.MMResources["slug_grav"]["Instance"] = '679FD75F-EB49-4FD2-9496-9B54D73C87AC' --BED
+-- ---
+
+	self.MMResources["slug_pump_grav"] = {}
+	self.MMResources["slug_pump_grav"]["Partition"] = 'E3251329-3AB3-4490-A488-54C3C1B870C2'
+	self.MMResources["slug_pump_grav"]["Instance"] = '73906759-9C12-4B2B-91C3-F42DB8BE9A1B' --BED
+-- ---
+-- ---
+-- ---
+-- ---
+-- ---
+-- ---
+-- ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- --------------------------------------------------
 -- Handguns --
 
@@ -132,6 +197,14 @@ function MMResources:__init()
 -- --------------------------------------------------
 -- Gadgets (used) --
 
+-- used for mp412rex - 
+
+	self.MMResources["defibvolabel"] = {}
+	self.MMResources["defibvolabel"]["Partition"] = '2C4E5C83-B1BD-11DE-96E2-89FC67A5C271'
+	self.MMResources["defibvolabel"]["Instance"] = '50999073-C1D2-4240-B50F-6EC1FC45BCE8'
+
+
+-- -----------
 	self.MMResources["smaw"] = {}
 	self.MMResources["smaw"]["Partition"] = 'BCE98CA0-17EC-11E0-8CD8-85483A75A7C5'
 	self.MMResources["smaw"]["Instance"]  = 'AB8577C5-D5F9-4A17-BEB2-2E153E171630'
@@ -192,6 +265,7 @@ function MMResources:__init()
 	self.MMResources["rpgprojectile"]["Partition"] = '6C857FD9-6FB3-11DE-B35E-864CF572E1C4'
 	self.MMResources["rpgprojectile"]["Instance"] = 'CDD3A384-8243-A258-E23D-239CC0D52698' 
 
+
 -- crossbow stuff --
 
 	self.MMResources["crossboltsound"] = {}
@@ -209,17 +283,17 @@ function MMResources:__init()
 
 -- -------------
 
---	self.MMResources["claymore"] = {}
---	self.MMResources["claymore"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
---	self.MMResources["claymore"]["Instance"] = 'AA3BA4F5-2F8E-65FD-016A-D1E6F8C870FB'
+	self.MMResources["claymore"] = {}
+	self.MMResources["claymore"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
+	self.MMResources["claymore"]["Instance"] = 'AA3BA4F5-2F8E-65FD-016A-D1E6F8C870FB' -- EPED
 
---	self.MMResources["claymoreexp"] = {}
---	self.MMResources["claymoreexp"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
---	self.MMResources["claymoreexp"]["Instance"] = '5120E4F0-CD8C-4926-A45C-DA4460865508'
+	self.MMResources["claymoreexp"] = {}
+	self.MMResources["claymoreexp"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
+	self.MMResources["claymoreexp"]["Instance"] = '5120E4F0-CD8C-4926-A45C-DA4460865508' -- VED
 
---	self.MMResources["claymore_havok"] = {}
---	self.MMResources["claymore_havok"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
---	self.MMResources["claymore_havok"]["Instance"] = '426247C9-56D7-FBA7-539C-F6C6BD7FD07A'
+	self.MMResources["claymore_havok"] = {}
+	self.MMResources["claymore_havok"]["Partition"] = '8709A814-1FF9-11E0-8A74-C88A4F19AAB4'
+	self.MMResources["claymore_havok"]["Instance"] = '426247C9-56D7-FBA7-539C-F6C6BD7FD07A' -- HA
 
 
 

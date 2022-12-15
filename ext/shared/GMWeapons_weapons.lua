@@ -4,419 +4,85 @@ class "GMWeapons"
 
 function GMWeapons:Write(instance)
 -- -----------------------------------------
-	if (mmResources:IsLoaded('scarl') and mmResources:IsLoaded('crossbolt_he') and mmResources:IsLoaded('crossbolt_he_exp') and mmResources:IsLoaded('crossboltsound')) then
-		mmResources:SetLoaded('scarl', false)
-		mmResources:SetLoaded('crossbolt_he', false)
 
-		-- swap m60 for crossbolt_he bullets
+	if (mmResources:IsLoaded('scarl') and mmResources:IsLoaded('claymore') and mmResources:IsLoaded('40mmlvgsound')) then
+		mmResources:SetLoaded('scarl', false)
+
 		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('scarl'))
 		local weaponData = SoldierWeaponData(weaponBP.object)
-		local bulletData = BulletEntityData(mmResources:GetInstance('crossbolt_he'))
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-		local expData = VeniceExplosionEntityData(mmResources:GetInstance('crossbolt_he_exp'))
 
-		self:OverrideGMMagSize(weaponData, 50, -1)
+		self:OverrideGMMagSize(weaponData, 15, -1)
 
-		bulletData:MakeWritable()
-		bulletData.gravity = 0
-		bulletData.timeToLive = 15
-		bulletData.impactImpulse = 500
+		local claymoreData = ExplosionPackEntityData(mmResources:GetInstance('claymore'))
+		claymoreData:MakeWritable()
+		claymoreData.maxAttachableInclination = 720
+		--claymoreData.timeToLive = 20
+		claymoreData.maxCount = 25
 
-		expData:MakeWritable()
-		expData.blastDamage = 500 -- Normal = 56
-		expData.blastRadius = 20 -- Normal = 2
-		expData.blastImpulse = 1500 -- Normal = 500
-		expData.shockwaveDamage = 300 -- Normal = 1
-		expData.shockwaveRadius = 20 -- Normal = 7
-		expData.shockwaveImpulse = 500 -- Normal = 100
-		dprint('Changed Scar-L - Pimped HE Bolt damage (GM) ...')
+--		claymoreData.transform.left.x = 2
+--		claymoreData.transform.up.y = 2
+--		claymoreData.transform.forward.z = 2
 
+		claymoreData.soldierDetonationData.useAngle = false
+		claymoreData.soldierDetonationData.radius = 2
+		claymoreData.soldierDetonationData.soldierDetonationActivationDelay = 1
+		claymoreData.soldierDetonationData.minSpeedForActivation = 0
 
-		fireData.shot.initialSpeed.z = 10
+		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
+		fireData:MakeWritable()
+		fireData.weaponDispersion.standDispersion.minAngle = 25
+		fireData.weaponDispersion.standDispersion.maxAngle = 25
+		fireData.weaponDispersion.standDispersion.increasePerShot = 100
+		fireData.weaponDispersion.crouchDispersion.minAngle = 15
+		fireData.weaponDispersion.crouchDispersion.maxAngle = 15
+		fireData.weaponDispersion.crouchDispersion.increasePerShot = 100
+		fireData.weaponDispersion.proneDispersion.minAngle = 5
+		fireData.weaponDispersion.proneDispersion.maxAngle = 5
+		fireData.weaponDispersion.proneDispersion.increasePerShot = 100
+
+		fireData.shot.initialSpeed.z = 25
+		fireData.shot.numberOfBulletsPerShell = 10
 		fireData.shot.projectileData:MakeWritable()
-		fireData.shot.projectileData = ProjectileEntityData(bulletData)
+		fireData.shot.projectileData = claymoreData
 
-		fireData:MakeWritable()
-		fireData.sound = SoundPatchAsset(mmResources:GetInstance('crossboltsound'))
-		dprint('Changed SCarl-L Pimped ...')
+		fireData.sound = SoundPatchAsset(mmResources:GetInstance('40mmlvgsound'))
+
+		fireData.fireLogic.rateOfFire = 250
+
+		fireData.ammo.magazineCapacity = 5
+		fireData.ammo.numberOfMagazines = -1
+		dprint('Changed Weapons: Scar-L Pimped ...')
 	end
 
+	if (mmResources:IsLoaded('claymore_havok')) then
+		mmResources:SetLoaded('claymore_havok', false)
 
-
-
-
-
-
-	if (mmResources:IsLoaded('c4')) then
-		mmResources:SetLoaded('c4', false)
-
-		local fireData = FiringFunctionData(mmResources:GetInstance('c4'))
-		fireData:MakeWritable()
-		fireData.ammo.numberOfMagazines = 5
-		fireData.ammo.autoReplenishDelay = 0.1
-		fireData.ammo.ammoBagPickupDelayMultiplier = 0.1
-
-		fireData.fireLogic.rateOfFire = 250.0
-		dprint('Changed C4...')
-	end
-
-	if (mmResources:IsLoaded('c4expentity')) then
-		mmResources:SetLoaded('c4expentity', false)
-
-		local expEntityData = ExplosionPackEntityData(mmResources:GetInstance('c4expentity'))
-		expEntityData:MakeWritable()
-		expEntityData.health = 1
-		expEntityData.maxCount = 5
-		dprint('Changed C4 Entity...')
-	end
-
-	if (mmResources:IsLoaded('c4exp')) then
-		mmResources:SetLoaded('c4exp', false)
-
-		local expData = VeniceExplosionEntityData(mmResources:GetInstance('c4exp'))
+		local expData = HavokAsset(mmResources:GetInstance('claymore_havok'))
 		expData:MakeWritable()
-		expData.blastDamage = 1000 -- Default = 500
-		expData.blastRadius = 20 -- Default = 5
-		expData.blastImpulse = 9000 -- Default = 6000
-		expData.shockwaveDamage = 200 -- Default = 1
-		expData.shockwaveRadius = 20 -- Default = 6
-		expData.shockwaveImpulse = 2000 -- Default = 2000
-		expData.shockwaveTime = 0 -- Default = 0.14
+		expData.scale = 2.0
+		dprint('Changed Claymore HavokAsset...')
+	end
+
+	if (mmResources:IsLoaded('claymoreexp')) then
+		mmResources:SetLoaded('claymoreexp', false)
+
+		local expData = VeniceExplosionEntityData(mmResources:GetInstance('claymoreexp'))
+		expData:MakeWritable()
+		expData.blastDamage = 2100
+		expData.blastRadius = 3
+		expData.blastImpulse = 1987
+		expData.shockwaveDamage = 10
+		expData.shockwaveRadius = 5
+		expData.shockwaveImpulse = 1987
+		expData.shockwaveTime = 0.15
 		expData.triggerImpairedHearing = false
 		expData.isCausingSuppression = false
-		dprint('Changed C4 Explosion...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('m4a1')) then
-		mmResources:SetLoaded('m4a1', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m4a1'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed M4A1 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('m16')) then
-		mmResources:SetLoaded('m16', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m16'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed M16 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('g36c')) then
-		mmResources:SetLoaded('g36c', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('g36c'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed G36C (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('m416')) then
-		mmResources:SetLoaded('m416', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m416'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed M416 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('l85')) then
-		mmResources:SetLoaded('l85', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('l85'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed L85 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('mg36')) then
-		mmResources:SetLoaded('mg36', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mg36'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed MG36 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('aks74u')) then
-		mmResources:SetLoaded('aks74u', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('aks74u'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed AKS74U (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('ak74m')) then
-		mmResources:SetLoaded('ak74m', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('ak74m'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed AK74M (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('rpk74')) then
-		mmResources:SetLoaded('rpk74', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('rpk74'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed RPK74 (GM) ...')
-	end
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('asval')) then
-		mmResources:SetLoaded('asval', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('asval'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed AS-Val (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('pp2000')) then
-		mmResources:SetLoaded('pp2000', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pp2000'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed PP-2000 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('pdwr')) then
-		mmResources:SetLoaded('pdwr', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pdwr'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed PDW-R (GM) ...')
-	end
-
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('m240')) then
-		mmResources:SetLoaded('m240', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m240'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed M240 (GM) ...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('m249')) then
-		mmResources:SetLoaded('m249', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m249'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed M249 (GM) ...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('gm_p90')) then
-		mmResources:SetLoaded('gm_p90', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/P90/P90_GM')
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed P90 (GM)...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('pp19')) then
-		mmResources:SetLoaded('pp19', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pp19'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed PP-19 Bizon (GM) ...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('acwr') ) then
-		mmResources:SetLoaded('acwr', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('acwr'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed ACW-R (GM)...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('mtar') ) then
-		mmResources:SetLoaded('mtar', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mtar'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed MTAR (GM) ...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('aug') ) then
-		mmResources:SetLoaded('aug', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('aug'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Steyr Aug (GM) ...')
+		dprint('Changed Claymore Explosion...')
 	end
 
 -- -----------------------------------------
 
 
-	if (mmResources:IsLoaded('lsat') ) then
-		mmResources:SetLoaded('lsat', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('lsat'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed LSAT (GM) ...')
-	end
-
--- -----------------------------------------
-
-	if (mmResources:IsLoaded('l86') ) then
-		mmResources:SetLoaded('l86', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('l86'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed L86 (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('mp5k')) then
-		mmResources:SetLoaded('mp5k', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mp5k'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed MP5K (GM) ...')
-	end
-
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('famas')) then
-		mmResources:SetLoaded('famas', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('famas'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Famas (GM) ...')
-	end
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('F2000')) then
-		mmResources:SetLoaded('F2000', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('F2000'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed F2000 (GM) ...')
-	end
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('G3A3')) then
-		mmResources:SetLoaded('G3A3', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('G3A3'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed G3A3 (GM) ...')
-	end
--- ----------------------------------------------------
-
-	if (mmResources:IsLoaded('qbb95')) then
-		mmResources:SetLoaded('qbb95', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('qbb95'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed qbb95 (GM) ...')
-	end
--- ----------------------------------------------------
 
 -- Pimped - 	
 	if (mmResources:IsLoaded('m60a') and mmResources:IsLoaded('crossbolt_he') and mmResources:IsLoaded('crossbolt_he_exp') and mmResources:IsLoaded('crossboltsound')) then
@@ -444,7 +110,7 @@ function GMWeapons:Write(instance)
 		expData.shockwaveDamage = 150 -- Normal = 1
 		expData.shockwaveRadius = 20 -- Normal = 7
 		expData.shockwaveImpulse = 500 -- Normal = 100
-		dprint('Changed M60 - Pimped HE Bolt damage (GM) ...')
+		dprint('Changed Weapons: M60 - Pimped HE Bolt damage (GM) ...')
 
 
 		fireData.shot.initialSpeed.z = 20
@@ -453,8 +119,382 @@ function GMWeapons:Write(instance)
 
 		fireData:MakeWritable()
 		fireData.sound = SoundPatchAsset(mmResources:GetInstance('crossboltsound'))
-		dprint('Changed M60 - Pimped (GM) ...')
+		dprint('Changed Weapons: M60 - Pimped (GM) ...')
 	end 
+
+-- -----------------------------------------
+-- -----------------------------------------
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('c4')) then
+		mmResources:SetLoaded('c4', false)
+
+		local fireData = FiringFunctionData(mmResources:GetInstance('c4'))
+		fireData:MakeWritable()
+		fireData.ammo.numberOfMagazines = 5
+		fireData.ammo.autoReplenishDelay = 0.1
+		fireData.ammo.ammoBagPickupDelayMultiplier = 0.1
+
+		fireData.fireLogic.rateOfFire = 250.0
+		dprint('Changed Weapons: C4...')
+	end
+
+	if (mmResources:IsLoaded('c4expentity')) then
+		mmResources:SetLoaded('c4expentity', false)
+
+		local expEntityData = ExplosionPackEntityData(mmResources:GetInstance('c4expentity'))
+		expEntityData:MakeWritable()
+		expEntityData.health = 1
+		expEntityData.maxCount = 5
+		dprint('Changed Weapons: C4 Entity...')
+	end
+
+	if (mmResources:IsLoaded('c4exp')) then
+		mmResources:SetLoaded('c4exp', false)
+
+		local expData = VeniceExplosionEntityData(mmResources:GetInstance('c4exp'))
+		expData:MakeWritable()
+		expData.blastDamage = 1000 -- Default = 500
+		expData.blastRadius = 10 -- Default = 5
+		expData.blastImpulse = 9000 -- Default = 6000
+		expData.shockwaveDamage = 200 -- Default = 1
+		expData.shockwaveRadius = 10 -- Default = 6
+		expData.shockwaveImpulse = 2000 -- Default = 2000
+		expData.shockwaveTime = 0 -- Default = 0.14
+		expData.triggerImpairedHearing = false
+		expData.isCausingSuppression = false
+		dprint('Changed Weapons: C4 Explosion...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('m4a1')) then
+		mmResources:SetLoaded('m4a1', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m4a1'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: M4A1 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('m16')) then
+		mmResources:SetLoaded('m16', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m16'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: M16 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('g36c')) then
+		mmResources:SetLoaded('g36c', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('g36c'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: G36C (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('m416')) then
+		mmResources:SetLoaded('m416', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m416'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: M416 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('l85')) then
+		mmResources:SetLoaded('l85', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('l85'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: L85 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('mg36')) then
+		mmResources:SetLoaded('mg36', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mg36'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: MG36 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('aks74u')) then
+		mmResources:SetLoaded('aks74u', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('aks74u'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: AKS74U (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('ak74m')) then
+		mmResources:SetLoaded('ak74m', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('ak74m'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: AK74M (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('rpk74')) then
+		mmResources:SetLoaded('rpk74', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('rpk74'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: RPK74 (GM) ...')
+	end
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('asval')) then
+		mmResources:SetLoaded('asval', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('asval'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: AS-Val (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('pp2000')) then
+		mmResources:SetLoaded('pp2000', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pp2000'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: PP-2000 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('pdwr')) then
+		mmResources:SetLoaded('pdwr', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pdwr'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: PDW-R (GM) ...')
+	end
+
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('m240')) then
+		mmResources:SetLoaded('m240', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m240'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: M240 (GM) ...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('m249')) then
+		mmResources:SetLoaded('m249', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('m249'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: M249 (GM) ...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('gm_p90')) then
+		mmResources:SetLoaded('gm_p90', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/P90/P90_GM')
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: P90 (GM)...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('pp19')) then
+		mmResources:SetLoaded('pp19', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('pp19'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: PP-19 Bizon (GM) ...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('acwr') ) then
+		mmResources:SetLoaded('acwr', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('acwr'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: ACW-R (GM)...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('mtar') ) then
+		mmResources:SetLoaded('mtar', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mtar'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: MTAR (GM) ...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('aug') ) then
+		mmResources:SetLoaded('aug', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('aug'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: Steyr Aug (GM) ...')
+	end
+
+-- -----------------------------------------
+
+
+	if (mmResources:IsLoaded('lsat') ) then
+		mmResources:SetLoaded('lsat', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('lsat'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: LSAT (GM) ...')
+	end
+
+-- -----------------------------------------
+
+	if (mmResources:IsLoaded('l86') ) then
+		mmResources:SetLoaded('l86', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('l86'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: L86 (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('mp5k')) then
+		mmResources:SetLoaded('mp5k', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mp5k'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: MP5K (GM) ...')
+	end
+
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('famas')) then
+		mmResources:SetLoaded('famas', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('famas'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: Famas (GM) ...')
+	end
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('F2000')) then
+		mmResources:SetLoaded('F2000', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('F2000'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: F2000 (GM) ...')
+	end
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('G3A3')) then
+		mmResources:SetLoaded('G3A3', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('G3A3'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: G3A3 (GM) ...')
+	end
+-- ----------------------------------------------------
+
+	if (mmResources:IsLoaded('qbb95')) then
+		mmResources:SetLoaded('qbb95', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('qbb95'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: qbb95 (GM) ...')
+	end
 
 -- ----------------------------------------------------
 
@@ -471,7 +511,7 @@ function GMWeapons:Write(instance)
 
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
-		dprint('Changed UMP45 (GM)  (pimped) ...')
+		dprint('Changed Weapons: UMP45 (GM)  (pimped) ...')
 	end
 -- ----------------------------------------------------
 
@@ -488,8 +528,8 @@ function GMWeapons:Write(instance)
 
 		local fireData = FiringFunctionData(mmResources:GetInstance('40mmlvgfire'))
 		fireData:MakeWritable()
-		fireData.shot.initialSpeed.z = 50
-		fireData.shot.numberOfBulletsPerShell = 3
+		fireData.shot.initialSpeed.z = 40
+		fireData.shot.numberOfBulletsPerShell = 5
 
 		fireData.weaponDispersion.standDispersion.minAngle = 5
 		fireData.weaponDispersion.standDispersion.maxAngle = 7
@@ -501,7 +541,7 @@ function GMWeapons:Write(instance)
 		fireData.weaponDispersion.proneDispersion.maxAngle = 7
 		fireData.weaponDispersion.proneDispersion.increasePerShot = 0.8
 
-		dprint('Changed M320 LVG (GM) ...')
+		dprint('Changed Weapons: M320 LVG (GM) ...')
 	end
 -- -----------------------------------------
 
@@ -521,7 +561,7 @@ function GMWeapons:Write(instance)
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 
-		dprint('Changed MP7 (GM) ... (pimped ) ...')
+		dprint('Changed Weapons: MP7 (GM) ... (pimped ) ...')
 	end
 
 -- ----------------------------------------------------
