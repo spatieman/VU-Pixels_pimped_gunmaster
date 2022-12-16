@@ -8,12 +8,12 @@
      loadedInstance = GunMasterKillCounterEntityData(loadedInstance)
      loadedInstance:MakeWritable()
  
--- Standard rotation (0) (rotation works)
+-- Standard rotation (0)
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_MP443
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_M93
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[3].killsNeeded = 3 	-- GM_T44
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[4].killsNeeded = 2 	-- GM_PP
-     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[5].killsNeeded = 2 	-- GM_P90
+     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[5].killsNeeded = 8 	-- GM_P90
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[6].killsNeeded = 4 	-- GM_SPAS
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[7].killsNeeded = 4 	-- GM_Jackhammer
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[8].killsNeeded = 2 	-- GM_ACR
@@ -28,7 +28,7 @@
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[17].killsNeeded = 1	-- GM_Knife 
 
 
--- Standard rotation reversed (1)  (rotation works)
+-- Standard rotation reversed (1)
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[1].killsNeeded = 2 	-- GM_JNG90
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[2].killsNeeded = 2 	-- GM_M417
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[3].killsNeeded = 2 	-- GM_L86
@@ -39,7 +39,7 @@
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[8].killsNeeded = 2 	-- GM_ACR
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[9].killsNeeded = 4 	-- GM_Jackhammer
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[10].killsNeeded = 4	-- GM_SPAS
-     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[11].killsNeeded = 2	-- GM_P90
+     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[11].killsNeeded = 8	-- GM_P90
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[12].killsNeeded = 2	-- GM_PP
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[13].killsNeeded = 3	-- GM_T44
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[14].killsNeeded = 3	-- GM_M93
@@ -58,7 +58,7 @@
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[8].killsNeeded = 4 	-- GM_M1014_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[9].killsNeeded = 2 	-- GM_PP-2000_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[10].killsNeeded = 2 	-- GM_M5K_Premium
-     loadedInstance.weaponsPreset[3].gunMasterLevelInfos[11].killsNeeded = 2 	-- GM_P90_Premium
+     loadedInstance.weaponsPreset[3].gunMasterLevelInfos[11].killsNeeded = 8 	-- GM_P90_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[12].killsNeeded = 6 	-- GM_MP7_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[13].killsNeeded = 2 	-- GM_ASVal_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[14].killsNeeded = 2 	-- GM_PP-19_Premium
@@ -68,7 +68,7 @@
 
 
 -- Heavy gear  (3)
-     loadedInstance.weaponsPreset[4].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_MP12REX_Premium
+     loadedInstance.weaponsPreset[4].gunMasterLevelInfos[1].killsNeeded = 8 	-- GM_MP12REX_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_T44_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[3].killsNeeded = 4 	-- GM_SPAS-12_Slugs_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[4].killsNeeded = 4 	-- GM_Jackhammer_Slugs_Premium
@@ -87,7 +87,7 @@
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[17].killsNeeded = 1 	-- GM_Knife_Razor
 
 
--- pistol run (4) (rotation works)
+-- pistol run (4)
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_MP443_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[3].killsNeeded = 3 	-- GM_Glock17_Premium
@@ -96,7 +96,7 @@
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[6].killsNeeded = 3 	-- GM_M1911_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[7].killsNeeded = 3 	-- GM_Glock18_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[8].killsNeeded = 3 	-- GM_M93_Premium
-     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[9].killsNeeded = 3 	-- GM_MP12REX_Premium
+     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[9].killsNeeded = 8 	-- GM_MP12REX_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[10].killsNeeded = 3 	-- GM_T44_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_Knife_Razor
 
@@ -118,7 +118,7 @@
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[14].killsNeeded = 5 	-- GM_Crossbow_Bolt_Premium
      loadedInstance.weaponsPreset[6].gunMasterLevelInfos[15].killsNeeded = 1 	-- GM_Knife_Razor
 
--- US arms race (6) (rotation works)
+-- US arms race (6)
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_M1911_Premium
      loadedInstance.weaponsPreset[7].gunMasterLevelInfos[3].killsNeeded = 4 	-- GM_870_Premium
@@ -134,7 +134,7 @@
 
 -- RU arms race (7)
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_MP443_Premium
-     loadedInstance.weaponsPreset[8].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_MP12REX_Premium
+     loadedInstance.weaponsPreset[8].gunMasterLevelInfos[2].killsNeeded = 8 	-- GM_MP12REX_Premium
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[3].killsNeeded = 4 	-- GM_SAIGA12_Premium
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[4].killsNeeded = 2 	-- GM_PP-2000_Premium
      loadedInstance.weaponsPreset[8].gunMasterLevelInfos[5].killsNeeded = 2 	-- GM_PP-19_Premium
