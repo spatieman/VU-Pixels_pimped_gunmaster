@@ -370,7 +370,7 @@ function MMResources:__init()
 
 	self.MMResources["scarl"] = {}
 	self.MMResources["scarl"]["Partition"] = '6695DE67-4178-4EA7-95F9-9D575EF95E2A'
-	self.MMResources["scarl"]["Instance"] = '13EB2C92-DC45-4049-8F74-34192ECD2BBE'
+	self.MMResources["scarl"]["Instance"] = '13EB2C92-DC45-4049-8F74-34192ECD2BBE' -- SWBP
 
 	self.MMResources["lsat"] = {}
 	self.MMResources["lsat"]["Partition"] = '75E9AE70-B8B5-4A63-BDCC-AAF2914277D2'

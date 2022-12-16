@@ -3,82 +3,48 @@ class "GMWeapons"
 -- Gadgets pimped - C4 - M320 lvg - 
 
 function GMWeapons:Write(instance)
+
+-- -----------------------------------------
+	if (mmResources:IsLoaded('gm_p90') and mmResources:IsLoaded('12gfrag')) then
+		mmResources:SetLoaded('gm_p90', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/P90/P90_GM')
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 250, -1)
+
+		local bulletData = BulletEntityData(mmResources:GetInstance('12gfrag'))
+		bulletData:MakeWritable()
+		bulletData.gravity = -4.5
+		bulletData.startDamage = 404
+		bulletData.endDamage = 4004
+		bulletData.damageFalloffStartDistance = 0
+		bulletData.damageFalloffEndDistance = 100
+		bulletData.timeToLive = 5
+		bulletData.impactImpulse = 40000
+		dprint('Changed 12G Frag Projectile...')
+
+		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
+		fireData:MakeWritable()
+		fireData.shot.projectileData:MakeWritable()
+		fireData.shot.projectileData = ProjectileEntityData(bulletData)
+		fireData.ammo.magazineCapacity = 500
+		dprint('Changed Weapons: P90 (GM) Pimped ...')
+	end
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('scarl') and mmResources:IsLoaded('claymore') and mmResources:IsLoaded('40mmlvgsound')) then
+	if (mmResources:IsLoaded('scarl')) then
 		mmResources:SetLoaded('scarl', false)
 
 		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('scarl'))
 		local weaponData = SoldierWeaponData(weaponBP.object)
+		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
-		self:OverrideGMMagSize(weaponData, 15, -1)
-
-		local claymoreData = ExplosionPackEntityData(mmResources:GetInstance('claymore'))
-		claymoreData:MakeWritable()
-		claymoreData.maxAttachableInclination = 720
-		--claymoreData.timeToLive = 20
-		claymoreData.maxCount = 25
-
---		claymoreData.transform.left.x = 2
---		claymoreData.transform.up.y = 2
---		claymoreData.transform.forward.z = 2
-
-		claymoreData.soldierDetonationData.useAngle = false
-		claymoreData.soldierDetonationData.radius = 2
-		claymoreData.soldierDetonationData.soldierDetonationActivationDelay = 1
-		claymoreData.soldierDetonationData.minSpeedForActivation = 0
-
-		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
-		fireData:MakeWritable()
-		fireData.weaponDispersion.standDispersion.minAngle = 25
-		fireData.weaponDispersion.standDispersion.maxAngle = 25
-		fireData.weaponDispersion.standDispersion.increasePerShot = 100
-		fireData.weaponDispersion.crouchDispersion.minAngle = 15
-		fireData.weaponDispersion.crouchDispersion.maxAngle = 15
-		fireData.weaponDispersion.crouchDispersion.increasePerShot = 100
-		fireData.weaponDispersion.proneDispersion.minAngle = 5
-		fireData.weaponDispersion.proneDispersion.maxAngle = 5
-		fireData.weaponDispersion.proneDispersion.increasePerShot = 100
-
-		fireData.shot.initialSpeed.z = 25
-		fireData.shot.numberOfBulletsPerShell = 10
-		fireData.shot.projectileData:MakeWritable()
-		fireData.shot.projectileData = claymoreData
-
-		fireData.sound = SoundPatchAsset(mmResources:GetInstance('40mmlvgsound'))
-
-		fireData.fireLogic.rateOfFire = 250
-
-		fireData.ammo.magazineCapacity = 5
-		fireData.ammo.numberOfMagazines = -1
-		dprint('Changed Weapons: Scar-L Pimped ...')
+		self:OverrideGMMagSize(weaponData, 200, -1)
+		dprint('Changed Weapons: scarl (GM) ...')
 	end
 
-	if (mmResources:IsLoaded('claymore_havok')) then
-		mmResources:SetLoaded('claymore_havok', false)
 
-		local expData = HavokAsset(mmResources:GetInstance('claymore_havok'))
-		expData:MakeWritable()
-		expData.scale = 2.0
-		dprint('Changed Claymore HavokAsset...')
-	end
-
-	if (mmResources:IsLoaded('claymoreexp')) then
-		mmResources:SetLoaded('claymoreexp', false)
-
-		local expData = VeniceExplosionEntityData(mmResources:GetInstance('claymoreexp'))
-		expData:MakeWritable()
-		expData.blastDamage = 2100
-		expData.blastRadius = 3
-		expData.blastImpulse = 1987
-		expData.shockwaveDamage = 10
-		expData.shockwaveRadius = 5
-		expData.shockwaveImpulse = 1987
-		expData.shockwaveTime = 0.15
-		expData.triggerImpairedHearing = false
-		expData.isCausingSuppression = false
-		dprint('Changed Claymore Explosion...')
-	end
 
 -- -----------------------------------------
 
@@ -350,17 +316,6 @@ function GMWeapons:Write(instance)
 
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('gm_p90')) then
-		mmResources:SetLoaded('gm_p90', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/P90/P90_GM')
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Weapons: P90 (GM)...')
-	end
-
--- -----------------------------------------
 
 	if (mmResources:IsLoaded('pp19')) then
 		mmResources:SetLoaded('pp19', false)
