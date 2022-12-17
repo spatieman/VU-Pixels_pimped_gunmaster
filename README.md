@@ -7,6 +7,9 @@
 - This mod will override all the default gunmaster kill settings.
 - Most of the Gun master weapons are tweaked with more bullits
 #
+# Update: 17-12-2022
+- Tweaked P90 , Scar-L with no conflict.
+
 # Update: 15-12-2022
 - Added all shotgun ammo (own ammo instance file)
 - minor weapon tweaks
