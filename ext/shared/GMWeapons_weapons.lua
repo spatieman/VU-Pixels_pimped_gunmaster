@@ -1,28 +1,29 @@
 class "GMWeapons"
--- Pimped weapons - UMP45 - M60e - MP7 - 
+-- Pimped weapons - UMP45 - M60e - MP7 - Scarl-l
 -- Gadgets pimped - C4 - M320 lvg - 
 
 function GMWeapons:Write(instance)
 
 -- -----------------------------------------
+-- pimped --
 	if (mmResources:IsLoaded('gm_p90') and mmResources:IsLoaded('12gfrag')) then
 		mmResources:SetLoaded('gm_p90', false)
 
 		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/P90/P90_GM')
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
-		self:OverrideGMMagSize(weaponData, 250, -1)
+		self:OverrideGMMagSize(weaponData, 20, -1)
 
 		local bulletData = BulletEntityData(mmResources:GetInstance('12gfrag'))
 		bulletData:MakeWritable()
-		bulletData.gravity = -4.5
-		bulletData.startDamage = 404
-		bulletData.endDamage = 4004
+		bulletData.gravity = 0
+		bulletData.startDamage = 400
+		bulletData.endDamage = 4000
 		bulletData.damageFalloffStartDistance = 0
 		bulletData.damageFalloffEndDistance = 100
 		bulletData.timeToLive = 5
-		bulletData.impactImpulse = 40000
-		dprint('Changed 12G Frag Projectile...')
+		bulletData.impactImpulse = 10000
+		dprint('Changed 12G Frag Projectile for P90 ...')
 
 		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
 		fireData:MakeWritable()
@@ -33,23 +34,69 @@ function GMWeapons:Write(instance)
 	end
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('scarl')) then
-		mmResources:SetLoaded('scarl', false)
 
+-- Pimped --
+	if (mmResources:IsLoaded('scarl') and mmResources:IsLoaded('crossbolt_he_scarl') and mmResources:IsLoaded('crossbolt_he_exp_scarl') and mmResources:IsLoaded('crossboltsound_scarl')) then
+		mmResources:SetLoaded('scarl', false)
+		mmResources:SetLoaded('crossbolt_he_scarl', false)
+
+		-- swap m60 for crossbolt_he bullets
 		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('scarl'))
 		local weaponData = SoldierWeaponData(weaponBP.object)
+		local bulletData = BulletEntityData(mmResources:GetInstance('crossbolt_he_scarl'))
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+		local expData = VeniceExplosionEntityData(mmResources:GetInstance('crossbolt_he_exp_scarl'))
 
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Weapons: scarl (GM) ...')
-	end
+		self:OverrideGMMagSize(weaponData, 10, -1)
+
+		bulletData:MakeWritable()
+		bulletData.gravity = 0
+		bulletData.timeToLive = 5
+		bulletData.impactImpulse = 500
+
+		expData:MakeWritable()
+		expData.blastDamage = 150 -- Normal = 56
+		expData.blastRadius = 10 -- Normal = 2
+		expData.blastImpulse = 1500 -- Normal = 500
+		expData.shockwaveDamage = 150 -- Normal = 1
+		expData.shockwaveRadius = 10 -- Normal = 7
+		expData.shockwaveImpulse = 500 -- Normal = 100
+		dprint('Changed Weapons: SCAR-L - Pimped HE Bolt damage (GM) ...')
+
+
+		fireData.shot.initialSpeed.z = 15
+		fireData.shot.projectileData:MakeWritable()
+		fireData.shot.projectileData = ProjectileEntityData(bulletData)
+
+		fireData:MakeWritable()
+		fireData.sound = SoundPatchAsset(mmResources:GetInstance('crossboltsound_scarl'))
+		dprint('Changed Weapons: SCAR-L - Pimped (GM) ...')
+	end 
+--
+
+
+-- ----------------------------------------------------
+-- scarl_ffd
+
+-- Pimped --
+	if (mmResources:IsLoaded('scarl_ffd')) then
+		mmResources:SetLoaded('scarl_ffd', false)
+		local bulletData = FiringFunctionData(mmResources:GetInstance('scarl_ffd'))
+		bulletData:MakeWritable()
+
+		bulletData.shot.numberOfBulletsPerShell = 15
+		bulletData.weaponDispersion.standDispersion.minAngle = 5
+		bulletData.weaponDispersion.standDispersion.maxAngle = 7
+		bulletData.weaponDispersion.crouchDispersion.minAngle = 5
+		bulletData.weaponDispersion.crouchDispersion.maxAngle = 7
+		bulletData.weaponDispersion.proneDispersion.minAngle = 5
+		bulletData.weaponDispersion.proneDispersion.maxAngle = 7
+		dprint('Changed Weapons: SCAR-L - AMMO spread Pimped (GM) ...')
+	end 
 
 
 
--- -----------------------------------------
-
-
-
+-- ---------
 -- Pimped - 	
 	if (mmResources:IsLoaded('m60a') and mmResources:IsLoaded('crossbolt_he') and mmResources:IsLoaded('crossbolt_he_exp') and mmResources:IsLoaded('crossboltsound')) then
 		mmResources:SetLoaded('m60a', false)
@@ -71,15 +118,15 @@ function GMWeapons:Write(instance)
 
 		expData:MakeWritable()
 		expData.blastDamage = 150 -- Normal = 56
-		expData.blastRadius = 20 -- Normal = 2
+		expData.blastRadius = 10 -- Normal = 2
 		expData.blastImpulse = 1500 -- Normal = 500
 		expData.shockwaveDamage = 150 -- Normal = 1
-		expData.shockwaveRadius = 20 -- Normal = 7
+		expData.shockwaveRadius = 10 -- Normal = 7
 		expData.shockwaveImpulse = 500 -- Normal = 100
 		dprint('Changed Weapons: M60 - Pimped HE Bolt damage (GM) ...')
 
 
-		fireData.shot.initialSpeed.z = 20
+		fireData.shot.initialSpeed.z = 25
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 
@@ -87,6 +134,13 @@ function GMWeapons:Write(instance)
 		fireData.sound = SoundPatchAsset(mmResources:GetInstance('crossboltsound'))
 		dprint('Changed Weapons: M60 - Pimped (GM) ...')
 	end 
+
+
+
+-- -----------------------------------------
+
+
+
 
 -- -----------------------------------------
 -- -----------------------------------------

@@ -41,14 +41,13 @@ function MMResources:__init()
 	self.MMResources["870mcs"]["Partition"] = '50F905EA-E32B-11DF-931B-DC6D3E613E0F'
 	self.MMResources["870mcs"]["Instance"] = 'B76D7661-C812-64C2-322C-A269E40A1CD7'
 
--- Shotgun ammo --
-
+--
 -- this is shotgun ammo --
 	self.MMResources["12gfragexp"] = {}
 	self.MMResources["12gfragexp"]["Partition"] = '2A6FCD72-5842-41B4-AC48-56BAACA506A3'
 	self.MMResources["12gfragexp"]["Instance"]  = '035DDB32-FB47-41CC-9F59-47D52F2CD685' --VED
 
-	self.MMResources["12gfrag"] = {} -- Used for MP412REX
+	self.MMResources["12gfrag"] = {} -- Used for MP412REX nad P90 (not at the same time)
 	self.MMResources["12gfrag"]["Partition"] = '2A6FCD72-5842-41B4-AC48-56BAACA506A3'
 	self.MMResources["12gfrag"]["Instance"] = 'EF265029-3291-4544-8081-ABFFA09D3D96' --BED
 
@@ -85,25 +84,6 @@ function MMResources:__init()
 	self.MMResources["slug_pump_grav"]["Partition"] = 'E3251329-3AB3-4490-A488-54C3C1B870C2'
 	self.MMResources["slug_pump_grav"]["Instance"] = '73906759-9C12-4B2B-91C3-F42DB8BE9A1B' --BED
 -- ---
--- ---
--- ---
--- ---
--- ---
--- ---
--- ---
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 -- --------------------------------------------------
@@ -124,7 +104,6 @@ function MMResources:__init()
 	self.MMResources["g17"] = {}
 	self.MMResources["g17"]["Partition"] = '3B3F9879-EB4B-11DF-8AA6-AE0344995412'
 	self.MMResources["g17"]["Instance"] = 'B593E5A0-CFC8-6A46-88F8-FAE77EE27563'
-
 
 	self.MMResources["mp412rex"] = {}
 	self.MMResources["mp412rex"]["Partition"] = '2EB76B74-1F16-11E0-BE14-C6BC4F4ED27B'
@@ -268,6 +247,7 @@ function MMResources:__init()
 
 -- crossbow stuff --
 
+-- used for M60 - Dupes for Scar-L
 	self.MMResources["crossboltsound"] = {}
 	self.MMResources["crossboltsound"]["Partition"] = '591449E1-A47A-4768-A7A8-29DE293517E8'
 	self.MMResources["crossboltsound"]["Instance"] = '3C39A1D9-F161-4A4B-A065-9C70D13DBB81'
@@ -279,6 +259,18 @@ function MMResources:__init()
 	self.MMResources["crossbolt_he_exp"] = {}
 	self.MMResources["crossbolt_he_exp"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
 	self.MMResources["crossbolt_he_exp"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF'
+--
+	self.MMResources["crossboltsound_scarl"] = {}
+	self.MMResources["crossboltsound_scarl"]["Partition"] = '591449E1-A47A-4768-A7A8-29DE293517E8'
+	self.MMResources["crossboltsound_scarl"]["Instance"] = '3C39A1D9-F161-4A4B-A065-9C70D13DBB81'
+
+	self.MMResources["crossbolt_he_scarl"] = {}
+	self.MMResources["crossbolt_he_scarl"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
+	self.MMResources["crossbolt_he_scarl"]["Instance"] = 'D09E04C4-4B06-4967-A7F5-1DE6D0912676'
+
+	self.MMResources["crossbolt_he_exp_scarl"] = {}
+	self.MMResources["crossbolt_he_exp_scarl"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
+	self.MMResources["crossbolt_he_exp_scarl"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF'
 
 
 -- -------------
@@ -350,7 +342,7 @@ function MMResources:__init()
 
 	self.MMResources["m60a"] = {}
 	self.MMResources["m60a"]["Partition"] = '99BD41C7-EDB0-11DF-A0C6-D95650B9E286'
-	self.MMResources["m60a"]["Instance"] = '43231946-E7C9-711C-EE44-69162742CC7B'
+	self.MMResources["m60a"]["Instance"] = '43231946-E7C9-711C-EE44-69162742CC7B' --SWBP
 
 	self.MMResources["famas"] = {}
 	self.MMResources["famas"]["Partition"] = '706A1BD6-6DAB-4CEE-BFCA-82814251E2D8'
@@ -368,9 +360,15 @@ function MMResources:__init()
 	self.MMResources["aug"]["Partition"] = '91978925-827B-4DA2-82C1-307ECCB7B83B'
 	self.MMResources["aug"]["Instance"] = '8DF97E42-C7F1-4E4D-826E-E9B90206C16E'
 
+--
 	self.MMResources["scarl"] = {}
 	self.MMResources["scarl"]["Partition"] = '6695DE67-4178-4EA7-95F9-9D575EF95E2A'
 	self.MMResources["scarl"]["Instance"] = '13EB2C92-DC45-4049-8F74-34192ECD2BBE' -- SWBP
+
+	self.MMResources["scarl_ffd"] = {}
+	self.MMResources["scarl_ffd"]["Partition"] = '6695DE67-4178-4EA7-95F9-9D575EF95E2A'
+	self.MMResources["scarl_ffd"]["Instance"] = '97E50571-45A0-47FF-9A40-ABA5F76AA19A' -- FFD
+--
 
 	self.MMResources["lsat"] = {}
 	self.MMResources["lsat"]["Partition"] = '75E9AE70-B8B5-4A63-BDCC-AAF2914277D2'
@@ -390,7 +388,7 @@ function MMResources:__init()
 
 	self.MMResources["gm_p90"] = {}
 	self.MMResources["gm_p90"]["Partition"] = 'C7D08BC3-04B6-440C-BF99-0E6D6A41D890'
-	self.MMResources["gm_p90"]["Instance"] = '4C7904EB-0121-4BE4-B50B-D15E4505BC7E'
+	self.MMResources["gm_p90"]["Instance"] = '4C7904EB-0121-4BE4-B50B-D15E4505BC7E' --
 
 	self.MMResources["pp2000"] = {}
 	self.MMResources["pp2000"]["Partition"] = '144442BD-173B-11E0-B7E4-E4E608316920'
