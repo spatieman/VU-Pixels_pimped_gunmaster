@@ -52,22 +52,38 @@ function GMWeapons_handguns:Write(instance)
 
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('gm_m93r')) then
+-- GM93r Pimped
+	if (mmResources:IsLoaded('gm_m93r')  and mmResources:IsLoaded('crossbolt_scan') and mmResources:IsLoaded('crossbolt_he_exp_scarl') and mmResources:IsLoaded('crossboltsound_scarl')) then
 		mmResources:SetLoaded('gm_m93r', false)
+		mmResources:SetLoaded('crossbolt_scan', false)
 
 		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/M93R/M93R_GM')
 		local weaponData = SoldierWeaponData(weaponBP.object)
+		local bulletData = BulletEntityData(mmResources:GetInstance('crossbolt_scan'))
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
+		local expData = VeniceExplosionEntityData(mmResources:GetInstance('crossbolt_scan_LE'))
 
-		self:OverrideGMMagSize(weaponData, 200, -1)
+		self:OverrideGMMagSize(weaponData, 150, -1)
 
-		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
-		fireData:MakeWritable()
-		fireData.shot.initialSpeed.z = 380
-		fireData.shot.numberOfBulletsPerBurst = 15
-		fireData.fireLogic.rateOfFire = 900
-		fireData.fireLogic.rateOfFireForBurst = 900
-		dprint('Changed Handguns:  M93r (GM)...')
+		bulletData:MakeWritable()
+		bulletData.gravity = 0
+		bulletData.timeToLive = 5
+		bulletData.impactImpulse = 500
+
+		expData:MakeWritable()
+		expData.blastDamage = 15 -- Normal = 0
+		expData.blastRadius = 5 -- Normal = 10
+		expData.blastImpulse = 50 -- Normal = 0
+		expData.shockwaveDamage = 15 -- Normal = 0
+		expData.shockwaveRadius = 5 -- Normal = 10
+		expData.shockwaveImpulse = 50 -- Normal = 0
+		dprint('Changed Handguns: M93R - Low pimped EXP Bolt damage (GM) ...')
+
+
+		fireData.shot.initialSpeed.z = 15
+		fireData.shot.projectileData:MakeWritable()
+		fireData.shot.projectileData = ProjectileEntityData(bulletData)
+		dprint('Changed Handguns:  M93r (GM) pimped ...')
 	end
 
 -- -----------------------------------------

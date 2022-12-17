@@ -254,11 +254,11 @@ function MMResources:__init()
 
 	self.MMResources["crossbolt_he"] = {}
 	self.MMResources["crossbolt_he"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
-	self.MMResources["crossbolt_he"]["Instance"] = 'D09E04C4-4B06-4967-A7F5-1DE6D0912676'
+	self.MMResources["crossbolt_he"]["Instance"] = 'D09E04C4-4B06-4967-A7F5-1DE6D0912676' -- BED
 
 	self.MMResources["crossbolt_he_exp"] = {}
 	self.MMResources["crossbolt_he_exp"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
-	self.MMResources["crossbolt_he_exp"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF'
+	self.MMResources["crossbolt_he_exp"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF' -- VEED
 --
 	self.MMResources["crossboltsound_scarl"] = {}
 	self.MMResources["crossboltsound_scarl"]["Partition"] = '591449E1-A47A-4768-A7A8-29DE293517E8'
@@ -266,12 +266,39 @@ function MMResources:__init()
 
 	self.MMResources["crossbolt_he_scarl"] = {}
 	self.MMResources["crossbolt_he_scarl"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
-	self.MMResources["crossbolt_he_scarl"]["Instance"] = 'D09E04C4-4B06-4967-A7F5-1DE6D0912676'
+	self.MMResources["crossbolt_he_scarl"]["Instance"] = 'D09E04C4-4B06-4967-A7F5-1DE6D0912676' -- BED
 
 	self.MMResources["crossbolt_he_exp_scarl"] = {}
 	self.MMResources["crossbolt_he_exp_scarl"]["Partition"] = '07E407B3-A4FE-4CD1-BABA-D8F6EB59FAEA'
-	self.MMResources["crossbolt_he_exp_scarl"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF'
+	self.MMResources["crossbolt_he_exp_scarl"]["Instance"] = 'B85B6C38-0D14-4079-932A-237984798ADF' -- VEED
+--
+-- Other Crossbow bolts
+-- Crossbow generic
+	self.MMResources["crossbow"] = {}
+	self.MMResources["crossbow"]["Partition"] = 'EEEC6E85-6A26-4C51-842E-55C5B75DE9DC'
+	self.MMResources["crossbow"]["Instance"] = '408C21F4-6D2F-41D8-AB92-D79141A3645E' -- VEED
 
+
+-- crossbow bolt default
+	self.MMResources["crossbolt_default"] = {}
+	self.MMResources["crossbolt_default"]["Partition"] = '26076E01-A015-44A8-BFBF-695187E25FFB'
+	self.MMResources["crossbolt_default"]["Instance"] = '391BB7D5-C4AE-4952-B103-189DC1700030' -- VEED
+
+
+-- crossbow bolt scan
+	self.MMResources["crossbolt_scan"] = {}
+	self.MMResources["crossbolt_scan"]["Partition"] = '2E6F6D70-6D07-4E9A-A679-DA61C0892CA8'
+	self.MMResources["crossbolt_scan"]["Instance"] = 'D7D7E957-27B1-4125-936E-0D851C7CEF9C' -- VEED
+
+	self.MMResources["crossbolt_scan_LE"] = {}
+	self.MMResources["crossbolt_scan_LE"]["Partition"] = '2E6F6D70-6D07-4E9A-A679-DA61C0892CA8'
+	self.MMResources["crossbolt_scan_LE"]["Instance"] = '489A2B06-6A52-461B-A1DC-E6F5C893E2D0' -- VEED
+
+
+-- crossbow bolt BA
+	self.MMResources["crossbolt_BA"] = {}
+	self.MMResources["crossbolt_BA"]["Partition"] = '7060D665-78CF-41A5-862B-B3055748A8C3'
+	self.MMResources["crossbolt_BA"]["Instance"] = 'D3A33689-42BD-478C-8D83-B7C0B73EE19D' -- VEED
 
 -- -------------
 
