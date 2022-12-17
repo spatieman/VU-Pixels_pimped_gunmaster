@@ -10,7 +10,7 @@
  
 -- Standard rotation (0)
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_MP443
-     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_M93
+     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[2].killsNeeded = 8 	-- GM_M93
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[3].killsNeeded = 3 	-- GM_T44
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[4].killsNeeded = 2 	-- GM_PP
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[5].killsNeeded = 8 	-- GM_P90
@@ -42,7 +42,7 @@
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[11].killsNeeded = 8	-- GM_P90
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[12].killsNeeded = 2	-- GM_PP
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[13].killsNeeded = 3	-- GM_T44
-     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[14].killsNeeded = 3	-- GM_M93
+     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[14].killsNeeded = 8	-- GM_M93
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[15].killsNeeded = 3	-- GM_MP443
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[16].killsNeeded = 5	-- GM_M320 LVG
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[17].killsNeeded = 1	-- GM_Knife 
@@ -50,7 +50,7 @@
 -- Light Weight rotation (2)
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_M9_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_Glock17_Premium
-     loadedInstance.weaponsPreset[3].gunMasterLevelInfos[3].killsNeeded = 3 	-- GM_M93_Premium
+     loadedInstance.weaponsPreset[3].gunMasterLevelInfos[3].killsNeeded = 8 	-- GM_M93_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[4].killsNeeded = 4 	-- GM_870_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[5].killsNeeded = 4 	-- GM_SAIGA12_Premium
      loadedInstance.weaponsPreset[3].gunMasterLevelInfos[6].killsNeeded = 4 	-- GM_SPAS-12_Premium
@@ -95,7 +95,7 @@
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[5].killsNeeded = 3 	-- GM_Glock17_Silenced_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[6].killsNeeded = 3 	-- GM_M1911_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[7].killsNeeded = 3 	-- GM_Glock18_Premium
-     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[8].killsNeeded = 3 	-- GM_M93_Premium
+     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[8].killsNeeded = 8 	-- GM_M93_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[9].killsNeeded = 8 	-- GM_MP12REX_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[10].killsNeeded = 3 	-- GM_T44_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_Knife_Razor
@@ -148,7 +148,7 @@
 
 -- EU arms race (8)
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_Glock17_Premium
-     loadedInstance.weaponsPreset[9].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_M93_Premium
+     loadedInstance.weaponsPreset[9].gunMasterLevelInfos[2].killsNeeded = 8 	-- GM_M93_Premium
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[3].killsNeeded = 4 	-- GM_SPAS-12_Premium
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[4].killsNeeded = 6 	-- GM_MP7_Premium
      loadedInstance.weaponsPreset[9].gunMasterLevelInfos[5].killsNeeded = 6 	-- GM_UMP45_Premium
