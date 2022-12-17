@@ -80,9 +80,13 @@ function GMWeapons_handguns:Write(instance)
 		dprint('Changed Handguns: M93R - Low pimped EXP Bolt damage (GM) ...')
 
 
-		fireData.shot.initialSpeed.z = 15
+		fireData.shot.initialSpeed.z = 40
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
+
+		fireData.shot.numberOfBulletsPerBurst = 15
+		fireData.fireLogic.rateOfFire = 900
+		fireData.fireLogic.rateOfFireForBurst = 900
 		dprint('Changed Handguns:  M93r (GM) pimped ...')
 	end
 
