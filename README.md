@@ -9,6 +9,7 @@
 #
 # Update: 17-12-2022
 - Tweaked P90 , Scar-L with no conflict.
+- More weapons tweaked
 
 # Update: 15-12-2022
 - Added all shotgun ammo (own ammo instance file)
