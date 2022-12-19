@@ -1,7 +1,7 @@
 -- This wil hide the messages in the console if set to false
 -- information is good, but can also be a bit overkill.
 
-bEnable_announcement = true -- if this is true, the print announcement wil show in the console
+bEnable_announcement = false -- if this is true, the print announcement wil show in the console
 
 -- 	if (bEnable_announcement) == (true) then 
 -- copy above line in front of the print statement xD

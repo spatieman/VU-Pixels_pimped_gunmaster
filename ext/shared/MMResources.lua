@@ -101,13 +101,16 @@ function MMResources:__init()
 	self.MMResources["m9sup"]["Partition"] = '94D0FEE8-E685-11DF-805B-F4FA4757ED08'
 	self.MMResources["m9sup"]["Instance"] = 'A21D7964-7F3B-5D82-A414-2ABDE6644BFC'
 
+--
 	self.MMResources["g17"] = {}
 	self.MMResources["g17"]["Partition"] = '3B3F9879-EB4B-11DF-8AA6-AE0344995412'
-	self.MMResources["g17"]["Instance"] = 'B593E5A0-CFC8-6A46-88F8-FAE77EE27563'
+	self.MMResources["g17"]["Instance"] = 'B593E5A0-CFC8-6A46-88F8-FAE77EE27563' -- SWBP
 
+
+--
 	self.MMResources["mp412rex"] = {}
 	self.MMResources["mp412rex"]["Partition"] = '2EB76B74-1F16-11E0-BE14-C6BC4F4ED27B'
-	self.MMResources["mp412rex"]["Instance"] = '32CEB0E2-7D7E-7205-3DD4-BFC4AC041A92'
+	self.MMResources["mp412rex"]["Instance"] = '32CEB0E2-7D7E-7205-3DD4-BFC4AC041A92' -- SWBP
 
 	self.MMResources["gm_magnum44"] = {}
 	self.MMResources["gm_magnum44"]["Partition"] = '584C0B65-BC87-4853-AD28-7B7CEB21B336'
@@ -119,7 +122,7 @@ function MMResources:__init()
 
 	self.MMResources["gm_m93r"] = {}
 	self.MMResources["gm_m93r"]["Partition"] = '30870A1C-F7BE-494A-B65B-9B0EB380A93C'
-	self.MMResources["gm_m93r"]["Instance"] = '08D76B3D-03BB-4B71-8BE3-406B9FDE6B4D'
+	self.MMResources["gm_m93r"]["Instance"] = '08D76B3D-03BB-4B71-8BE3-406B9FDE6B4D' -- SWBP
 
 -- --------------------------------------------------
 -- Sniper stuff --
@@ -244,6 +247,11 @@ function MMResources:__init()
 	self.MMResources["rpgprojectile"]["Partition"] = '6C857FD9-6FB3-11DE-B35E-864CF572E1C4'
 	self.MMResources["rpgprojectile"]["Instance"] = 'CDD3A384-8243-A258-E23D-239CC0D52698' 
 
+-- used for T44 magnum
+	self.MMResources["smawmissile"] = {}
+	self.MMResources["smawmissile"]["Partition"] = '168F529B-17F6-11E0-8CD8-85483A75A7C5'
+	self.MMResources["smawmissile"]["Instance"] = '168F529C-17F6-11E0-8CD8-85483A75A7C5'
+
 
 -- crossbow stuff --
 
@@ -319,10 +327,18 @@ function MMResources:__init()
 -- --------------------------------------------------
 -- Weapons --
 
+--	self.MMResources["aek971"] = {}
+--	self.MMResources["aek971"]["Partition"] = '64DB81AD-1F08-11E0-BE14-C6BC4F4ED27B'
+--	self.MMResources["aek971"]["Instance"] = 'CE3372DA-991B-41C1-95BC-19B5D26AAE5B' -- FFD
+-- use for template only when pimping with RPG projectile.
+
+
 	self.MMResources["qbb95"] = {}
 	self.MMResources["qbb95"]["Partition"] = 'EC29F616-A358-481C-BD2E-EEAD692CAA49'
-	self.MMResources["qbb95"]["Instance"] = '832FB13A-C7A0-482E-B883-CBA0BB878F28'
+	self.MMResources["qbb95"]["Instance"] = '832FB13A-C7A0-482E-B883-CBA0BB878F28' -- SWBP
+--	self.MMResources["qbb95"]["Instance"] = 'A6F96A7A-B741-42F6-AC02-832FB41752DA' -- FFD
 
+	
 	self.MMResources["G3A3"] = {}
 	self.MMResources["G3A3"]["Partition"] = '34347158-E5AA-11DF-99EB-E13A35414FEB'
 	self.MMResources["G3A3"]["Instance"] = 'CA148E2E-7988-25A8-454D-B651B62F2705'

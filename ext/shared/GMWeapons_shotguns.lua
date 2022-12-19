@@ -1,3 +1,14 @@
+-- This wil hide the messages in the console if set to false
+-- information is good, but can also be a bit overkill.
+
+bEnable_announcement = false -- if this is true, the print announcement wil show in the console
+
+-- 	if (bEnable_announcement) == (true) then 
+-- copy above line in front of the print statement xD
+-- Also place a end statement below the line you added to close the statement properly and restart the server
+-- true is print statement visible
+-- --------------------------------
+
 class "GMWeapons_shotguns"
 
 function GMWeapons_shotguns:Write(instance)
@@ -11,8 +22,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: Spas-12 (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: Spas-12 (GM) ...')
 	end
+end
 -- -----------------------------------------
 
 	if (mmResources:IsLoaded('jackhammer')) then
@@ -22,8 +34,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: Jackhammer (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: Jackhammer (GM) ...')
 	end
+end
 -- -----------------------------------------
 
 	if (mmResources:IsLoaded('dao12')) then
@@ -33,8 +46,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: DAO-12 (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: DAO-12 (GM) ...')
 	end
+end
 -- -----------------------------------------
 
 	if (mmResources:IsLoaded('m1014')) then
@@ -44,8 +58,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: M1014 (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: M1014 (GM) ...')
 	end
+end
 -- -----------------------------------------
 
 	if (mmResources:IsLoaded('saiga12k')) then
@@ -55,8 +70,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: SAIGA12K (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: SAIGA12K (GM) ...')
 	end
+end
 -- -----------------------------------------
 
 	if (mmResources:IsLoaded('870mcs')) then
@@ -66,8 +82,9 @@ function GMWeapons_shotguns:Write(instance)
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Shotgun: 870MCS (GM) ...')
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: 870MCS (GM) ...')
 	end
+end
 
 -- ----------------------------------------------------
 

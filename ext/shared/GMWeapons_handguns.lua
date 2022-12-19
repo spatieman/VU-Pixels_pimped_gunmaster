@@ -2,6 +2,32 @@ class "GMWeapons_handguns"
 
 function GMWeapons_handguns:Write(instance)
 -- -----------------------------------------
+-- Pimped
+if (mmResources:IsLoaded('gm_magnum44') and mmResources:IsLoaded('smawmissile')) then
+		mmResources:SetLoaded('gm_magnum44', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/Taurus44/Taurus44_GM')
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 40, -1)
+
+		local missileData = MissileEntityData(mmResources:GetInstance('smawmissile'))
+		missileData:MakeWritable()
+		missileData.maxSpeed = 750
+		missileData.gravity = 0
+		missileData.damage = 5000
+		dprint('Changed SMAW Missile...')
+
+		-- swap magnum for smaw rocket
+		local fireData = FiringFunctionData(weaponData.weaponFiring.primaryFire)
+		fireData:MakeWritable()
+		fireData.fireLogic.rateOfFire = 800
+		fireData.shot.projectileData:MakeWritable()
+		fireData.shot.projectileData = ProjectileEntityData(missileData)
+		dprint('Changed Magnum .44 Pimped (GM)...')
+	end
+-- -----------------------------------------
+
 -- MP412 Rex Pimped --
 	if (mmResources:IsLoaded('mp412rex') and mmResources:IsLoaded('defibvolabel') and mmResources:IsLoaded('12gfrag')) then
 		mmResources:SetLoaded('mp412rex', false)
@@ -27,31 +53,6 @@ function GMWeapons_handguns:Write(instance)
 		dprint('Changed Handguns: MP412 Rex (GM) Pimped ...')
 	end
 -- -----------------------------------------
--- -----------------------------------------
--- -----------------------------------------
-
--- -----------------------------------------
--- -----------------------------------------
--- -----------------------------------------
--- -----------------------------------------
--- -----------------------------------------
--- Handguns --
-
-	if (mmResources:IsLoaded('gm_mp443')) then
-		mmResources:SetLoaded('gm_mp443', false)
-
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/MP443/MP443_GM')
-		local weaponData = SoldierWeaponData(weaponBP.object)
-		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-
-		fireData.fireLogic.rateOfFire = 900
-		dprint('Changed Handguns:  Mp443 (GM)...')
-	end
-
--- -----------------------------------------
-
 -- GM93r Pimped
 	if (mmResources:IsLoaded('gm_m93r')  and mmResources:IsLoaded('crossbolt_scan') and mmResources:IsLoaded('crossbolt_he_exp_scarl') and mmResources:IsLoaded('crossboltsound_scarl')) then
 		mmResources:SetLoaded('gm_m93r', false)
@@ -90,18 +91,35 @@ function GMWeapons_handguns:Write(instance)
 		dprint('Changed Handguns:  M93r (GM) pimped ...')
 	end
 
+
+
+
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('gm_magnum44') ) then
-		mmResources:SetLoaded('gm_magnum44', false)
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+-- -----------------------------------------
+-- Handguns --
 
-		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/Taurus44/Taurus44_GM')
+	if (mmResources:IsLoaded('gm_mp443')) then
+		mmResources:SetLoaded('gm_mp443', false)
+
+		local weaponBP = ebxEditUtils:GetWritableInstance('Weapons/MP443/MP443_GM')
 		local weaponData = SoldierWeaponData(weaponBP.object)
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Handguns:  Magnum .44 (GM)...')
+
+		fireData.fireLogic.rateOfFire = 900
+		dprint('Changed Handguns:  Mp443 (GM)...')
 	end
+
+-- -----------------------------------------
+
+-- -----------------------------------------
+
 
 -- -----------------------------------------
 
@@ -130,6 +148,7 @@ function GMWeapons_handguns:Write(instance)
 	end
 
 -- -----------------------------------------
+-- also aplies for G18
 
 	if (mmResources:IsLoaded('g17')) then
 		mmResources:SetLoaded('g17', false)

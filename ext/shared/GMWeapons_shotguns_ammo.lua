@@ -1,3 +1,14 @@
+-- This wil hide the messages in the console if set to false
+-- information is good, but can also be a bit overkill.
+
+bEnable_announcement = false -- if this is true, the print announcement wil show in the console
+
+-- 	if (bEnable_announcement) == (true) then 
+-- copy above line in front of the print statement xD
+-- Also place a end statement below the line you added to close the statement properly and restart the server
+-- true is print statement visible
+-- --------------------------------
+
 class "GMWeapons_shotguns_ammo"
 
 function GMWeapons_shotguns_ammo:Write(instance)
@@ -18,8 +29,9 @@ if (mmResources:IsLoaded('12gfragexp')) then
 		fireData.shockwaveRadius = 5.0 -- Default = 3
 		fireData.shockwaveImpulse = 2000.0 -- Default = 100
 
-		dprint('Changed Handguns: MP412 Rex - Damage increased (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Handguns: MP412 Rex - Damage increased (GM) ...')
+end
+end
 
 if (mmResources:IsLoaded('12gfraggrav')) then
 		mmResources:SetLoaded('12gfraggrav', false)
@@ -33,8 +45,9 @@ if (mmResources:IsLoaded('12gfraggrav')) then
 		fireData.startDamage = 100 -- default = 20
 		fireData.endDamage = 100 -- default = 5
 
-		dprint('Changed Shotgun Ammo: 12G Frag - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12G Frag - Gravity modifier (GM) ...')
+end
+end
 
 --
 -- 12g frag pump ammo --
@@ -50,8 +63,9 @@ if (mmResources:IsLoaded('12gfrag_pump_grav')) then
 		fireData.startDamage = 100 -- default = 37.5
 		fireData.endDamage = 100 -- default = 10
 
-		dprint('Changed Shotgun Ammo: 12g Frag pump - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12g Frag pump - Gravity modifier (GM) ...')
+end
+end
 
 if (mmResources:IsLoaded('12gfrag_pump_exp')) then
 		mmResources:SetLoaded('12gfrag_pump_exp', false)
@@ -66,8 +80,9 @@ if (mmResources:IsLoaded('12gfrag_pump_exp')) then
 		fireData.shockwaveRadius = 5.0 -- Default = 3
 		fireData.shockwaveImpulse = 2000.0 -- Default = 100
 
-		dprint('Changed Shotgun Ammo: 12g Frag pump - Damage modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12g Frag pump - Damage modifier (GM) ...')
+end
+end
 
 --
 -- Buckshot Ammo --
@@ -83,8 +98,9 @@ if (mmResources:IsLoaded('buck_grav')) then
 		fireData.startDamage = 100 -- default = 18
 		fireData.endDamage = 100 -- default = 6
 
-		dprint('Changed Shotgun Ammo: 12G buckshot - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12G buckshot - Gravity modifier (GM) ...')
+end
+end
 
 --
 -- Flechette Ammo --
@@ -100,8 +116,9 @@ if (mmResources:IsLoaded('flech_grav')) then
 		fireData.startDamage = 100 -- default = 18
 		fireData.endDamage = 100 -- default = 6
 
-		dprint('Changed Shotgun Ammo: 12g flechette - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12g flechette - Gravity modifier (GM) ...')
+end
+end
 
 --
 -- Slug Ammo --
@@ -117,8 +134,9 @@ if (mmResources:IsLoaded('slug_grav')) then
 		fireData.startDamage = 100 -- default = 75
 		fireData.endDamage = 100 -- default = 37.5
 
-		dprint('Changed Shotgun Ammo: 12g slug - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12g slug - Gravity modifier (GM) ...')
+end
+end
 
 --
 -- Slug Pump Ammo --
@@ -134,8 +152,9 @@ if (mmResources:IsLoaded('slug_pump_grav')) then
 		fireData.startDamage = 100 -- default = 100
 		fireData.endDamage = 100 -- default = 40
 
-		dprint('Changed Shotgun Ammo: 12g slug pump - Gravity modifier (GM) ...')
-	end
+ 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun Ammo: 12g slug pump - Gravity modifier (GM) ...')
+end
+end
 
 -- -----------------------------------------
 end
