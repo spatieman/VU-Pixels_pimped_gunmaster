@@ -11,13 +11,13 @@
 -- Standard rotation (0)
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[1].killsNeeded = 3 	-- GM_MP443
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[2].killsNeeded = 8 	-- GM_M93
-     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[3].killsNeeded = 3 	-- GM_T44
+     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[3].killsNeeded = 8 	-- GM_T44
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[4].killsNeeded = 2 	-- GM_PP
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[5].killsNeeded = 8 	-- GM_P90
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[6].killsNeeded = 4 	-- GM_SPAS
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[7].killsNeeded = 4 	-- GM_Jackhammer
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[8].killsNeeded = 2 	-- GM_ACR
-     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[9].killsNeeded = 2 	-- GM_MTAR
+     loadedInstance.weaponsPreset[1].gunMasterLevelInfos[9].killsNeeded = 8 	-- GM_MTAR
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[10].killsNeeded = 2	-- GM_AUG
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[11].killsNeeded = 5	-- GM_SCAR
      loadedInstance.weaponsPreset[1].gunMasterLevelInfos[12].killsNeeded = 2	-- GM_LSAT
@@ -35,13 +35,13 @@
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[4].killsNeeded = 2 	-- GM_LSAT
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[5].killsNeeded = 5 	-- GM_SCAR
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[6].killsNeeded = 2 	-- GM_AUG
-     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[7].killsNeeded = 2 	-- GM_MTAR
+     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[7].killsNeeded = 8 	-- GM_MTAR
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[8].killsNeeded = 2 	-- GM_ACR
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[9].killsNeeded = 4 	-- GM_Jackhammer
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[10].killsNeeded = 4	-- GM_SPAS
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[11].killsNeeded = 8	-- GM_P90
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[12].killsNeeded = 2	-- GM_PP
-     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[13].killsNeeded = 3	-- GM_T44
+     loadedInstance.weaponsPreset[2].gunMasterLevelInfos[13].killsNeeded = 8	-- GM_T44
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[14].killsNeeded = 8	-- GM_M93
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[15].killsNeeded = 3	-- GM_MP443
      loadedInstance.weaponsPreset[2].gunMasterLevelInfos[16].killsNeeded = 5	-- GM_M320 LVG
@@ -69,7 +69,7 @@
 
 -- Heavy gear  (3)
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[1].killsNeeded = 8 	-- GM_MP12REX_Premium
-     loadedInstance.weaponsPreset[4].gunMasterLevelInfos[2].killsNeeded = 3 	-- GM_T44_Premium
+     loadedInstance.weaponsPreset[4].gunMasterLevelInfos[2].killsNeeded = 8 	-- GM_T44_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[3].killsNeeded = 4 	-- GM_SPAS-12_Slugs_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[4].killsNeeded = 4 	-- GM_Jackhammer_Slugs_Premium
      loadedInstance.weaponsPreset[4].gunMasterLevelInfos[5].killsNeeded = 2 	-- GM_AK74M_Premium
@@ -97,7 +97,7 @@
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[7].killsNeeded = 3 	-- GM_Glock18_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[8].killsNeeded = 8 	-- GM_M93_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[9].killsNeeded = 8 	-- GM_MP12REX_Premium
-     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[10].killsNeeded = 3 	-- GM_T44_Premium
+     loadedInstance.weaponsPreset[5].gunMasterLevelInfos[10].killsNeeded = 8 	-- GM_T44_Premium
      loadedInstance.weaponsPreset[5].gunMasterLevelInfos[11].killsNeeded = 1 	-- GM_Knife_Razor
 
 
