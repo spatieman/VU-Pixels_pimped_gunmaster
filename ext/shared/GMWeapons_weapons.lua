@@ -265,15 +265,15 @@ function GMWeapons:Write(instance)
 
 -- -----------------------------------------
 
-	if (mmResources:IsLoaded('mtar') ) then
-		mmResources:SetLoaded('mtar', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mtar'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
-		dprint('Changed Weapons: MTAR (GM) ...')
-	end
+--	if (mmResources:IsLoaded('mtar') ) then
+--		mmResources:SetLoaded('mtar', false)
+--
+--		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mtar'))
+--		local weaponData = SoldierWeaponData(weaponBP.object)
+--
+--		self:OverrideGMMagSize(weaponData, 200, -1)
+--		dprint('Changed Weapons: MTAR (GM) ...')
+--	end
 
 -- -----------------------------------------
 
