@@ -2,11 +2,14 @@
 ## Mod name: VU-Pixels_pimped_gunmaster
 ## "Authors": iamadeadpixel
 
-# Version 1.0.15
+# Version 1.0.16
 # Code based on VU-MajorsMod MajorVictory87
 - This mod will override all the default gunmaster kill settings.
 - Most of the Gun master weapons are tweaked with more bullits
 #
+# Update: 19-12-2022
+- Tweaked Mtar, T44 magnum, M93r
+
 # Update: 17-12-2022
 - Tweaked P90 , Scar-L with no conflict.
 - More weapons tweaked
