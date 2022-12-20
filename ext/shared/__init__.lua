@@ -14,25 +14,28 @@ mmCustomResources = require('__shared/MMCustomResources')
 mmCustomResources:RegisterResources(mmResources)
 
 -- modules
---GMMap_loader = require('__shared/GMMap_loader')
+--GMWeapons_tweak = require('__shared/GMWeapons_tweak') -- This should be disabled normaly, TEST setup only
 GMMap_loader1 = require('__shared/GMMap_loader1')
 GMMap_loader2 = require('__shared/GMMap_loader2')
 GMWeapons_weapons = require('__shared/GMWeapons_weapons')
 GMWeapons_handguns = require('__shared/GMWeapons_handguns')
-GMWeapons_shotguns = require('__shared/GMWeapons_shotguns')
-GMWeapons_shotguns_ammo = require('__shared/GMWeapons_shotguns_ammo')
 GMWeapons_rockets = require('__shared/GMWeapons_rockets')
 GMWeapons_snipers = require('__shared/GMWeapons_snipers')
+GMWeapons_shotguns = require('__shared/GMWeapons_shotguns')
+GMWeapons_shotguns_ammo = require('__shared/GMWeapons_shotguns_ammo')
+GMWeapons_shotguns_recoil = require('__shared/GMWeapons_shotguns_recoil')
 
 
 mmResources:AddLoadHandler(mmCustomResources, mmCustomResources.Write)
---mmResources:AddLoadHandler(GMMap_loader, GMMap_loader.Write)
+--mmResources:AddLoadHandler(GMWeapons_tweak, GMWeapons_tweak.Write) -- This should be disabled normaly, TEST setup only
 mmResources:AddLoadHandler(GMWeapons_weapons, GMWeapons_weapons.Write)
 mmResources:AddLoadHandler(GMWeapons_handguns, GMWeapons_handguns.Write)
-mmResources:AddLoadHandler(GMWeapons_shotguns, GMWeapons_shotguns.Write)
-mmResources:AddLoadHandler(GMWeapons_shotguns_ammo, GMWeapons_shotguns_ammo.Write)
 mmResources:AddLoadHandler(GMWeapons_rockets, GMWeapons_rockets.Write)
 mmResources:AddLoadHandler(GMWeapons_snipers, GMWeapons_snipers.Write)
+--
+mmResources:AddLoadHandler(GMWeapons_shotguns, GMWeapons_shotguns.Write)
+mmResources:AddLoadHandler(GMWeapons_shotguns_ammo, GMWeapons_shotguns_ammo.Write)
 mmResources:RegisterInstanceLoadHandlers()  
+
 
 

@@ -15,18 +15,6 @@ function GMWeapons_shotguns:Write(instance)
 -- -----------------------------------------
 -- SHOTGUNS --
 
-	if (mmResources:IsLoaded('spas12')) then
-		mmResources:SetLoaded('spas12', false)
-
-		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('spas12'))
-		local weaponData = SoldierWeaponData(weaponBP.object)
-
-		self:OverrideGMMagSize(weaponData, 200, -1)
- 	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: Spas-12 (GM) ...')
-	end
-end
--- -----------------------------------------
-
 	if (mmResources:IsLoaded('jackhammer')) then
 		mmResources:SetLoaded('jackhammer', false)
 
@@ -34,10 +22,99 @@ end
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('jackhammer', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('jackhammer', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('jackhammer', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('jackhammer', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
  	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: Jackhammer (GM) ...')
 	end
 end
+
 -- -----------------------------------------
+	if (mmResources:IsLoaded('spas12')) then
+		mmResources:SetLoaded('spas12', false)
+
+		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('spas12'))
+		local weaponData = SoldierWeaponData(weaponBP.object)
+
+		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('spas12', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('spas12', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('spas12', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('spas12', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
+	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: Spas-12 (GM) ...')
+	end
+end
+-- -----------------------------------------
+
 
 	if (mmResources:IsLoaded('dao12')) then
 		mmResources:SetLoaded('dao12', false)
@@ -46,6 +123,44 @@ end
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('dao12', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('dao12', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('dao12', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('dao12', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
  	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: DAO-12 (GM) ...')
 	end
 end
@@ -58,6 +173,44 @@ end
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('m1014', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('m1014', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('m1014', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('m1014', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
  	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: M1014 (GM) ...')
 	end
 end
@@ -70,6 +223,44 @@ end
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('saiga12k', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('saiga12k', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('saiga12k', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('saiga12k', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
  	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: SAIGA12K (GM) ...')
 	end
 end
@@ -82,6 +273,44 @@ end
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
 		self:OverrideGMMagSize(weaponData, 200, -1)
+
+--
+	local fireData = {
+			FiringFunctionData(mmResources:GetInstance('870mcs', 'FireFunction1')),
+			FiringFunctionData(mmResources:GetInstance('870mcs', 'FireFunction2')),
+			FiringFunctionData(mmResources:GetInstance('870mcs', 'FireFunction3')),
+			FiringFunctionData(mmResources:GetInstance('870mcs', 'FireFunction4'))
+		}
+
+		for i=1, #fireData do
+			fireData[i]:MakeWritable()
+			fireData[i].fireLogic.rateOfFire = 300
+
+			fireData[i].ammo.magazineCapacity = -1
+		end
+
+		fireData[1].shot.numberOfBulletsPerShell = 50 -- pellets
+		fireData[2].shot.numberOfBulletsPerShell = 50 -- flechets
+		fireData[3].shot.numberOfBulletsPerShell = 50 -- frags
+		fireData[4].shot.numberOfBulletsPerShell = 50 -- slugs
+
+		local bulletDataPellets = BulletEntityData(fireData[1].shot.projectileData)
+		bulletDataPellets:MakeWritable()
+		bulletDataPellets.gravity = 0
+		bulletDataPellets.startDamage = 100
+		bulletDataPellets.endDamage = 500
+		bulletDataPellets.damageFalloffStartDistance = 0
+		bulletDataPellets.damageFalloffEndDistance = 50
+
+		local bulletDataFlechet = BulletEntityData(fireData[2].shot.projectileData)
+		bulletDataFlechet:MakeWritable()
+		bulletDataFlechet.gravity = 0
+		bulletDataFlechet.startDamage = 100
+		bulletDataFlechet.endDamage = 500
+		bulletDataFlechet.damageFalloffStartDistance = 0
+		bulletDataFlechet.damageFalloffEndDistance = 50
+--
+
  	if (bEnable_announcement) == (true) then dprint('Changed Shotgun: 870MCS (GM) ...')
 	end
 end

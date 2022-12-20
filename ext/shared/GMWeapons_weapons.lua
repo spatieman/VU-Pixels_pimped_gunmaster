@@ -265,18 +265,6 @@ function GMWeapons:Write(instance)
 
 -- -----------------------------------------
 
---	if (mmResources:IsLoaded('mtar') ) then
---		mmResources:SetLoaded('mtar', false)
---
---		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('mtar'))
---		local weaponData = SoldierWeaponData(weaponBP.object)
---
---		self:OverrideGMMagSize(weaponData, 200, -1)
---		dprint('Changed Weapons: MTAR (GM) ...')
---	end
-
--- -----------------------------------------
-
 	if (mmResources:IsLoaded('aug') ) then
 		mmResources:SetLoaded('aug', false)
 
@@ -441,12 +429,12 @@ function GMWeapons:Write(instance)
 		local weaponBP = SoldierWeaponBlueprint(mmResources:GetInstance('40mmlvg'))
 		local weaponData = SoldierWeaponData(weaponBP.object)
 
-		self:OverrideGMMagSize(weaponData, 15, -1)
+		self:OverrideGMMagSize(weaponData, 25, -1)
 
 		local fireData = FiringFunctionData(mmResources:GetInstance('40mmlvgfire'))
 		fireData:MakeWritable()
 		fireData.shot.initialSpeed.z = 40
-		fireData.shot.numberOfBulletsPerShell = 5
+		fireData.shot.numberOfBulletsPerShell = 15
 
 		fireData.weaponDispersion.standDispersion.minAngle = 5
 		fireData.weaponDispersion.standDispersion.maxAngle = 7
@@ -472,7 +460,7 @@ function GMWeapons:Write(instance)
 		local bulletData = GrenadeEntityData(mmResources:GetInstance('40mmlvg_grenade'))
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 
-		self:OverrideGMMagSize(weaponData, 25, -1)
+		self:OverrideGMMagSize(weaponData, 50, -1)
 
 		fireData.shot.initialSpeed.z = 50
 		fireData.shot.projectileData:MakeWritable()
@@ -524,7 +512,7 @@ function GMWeapons:Write(instance)
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 		local expData = VeniceExplosionEntityData(mmResources:GetInstance('crossbolt_he_exp_scarl'))
 
-		self:OverrideGMMagSize(weaponData, 10, -1)
+		self:OverrideGMMagSize(weaponData, 75, -1)
 
 		bulletData:MakeWritable()
 		bulletData.gravity = 0
@@ -541,7 +529,7 @@ function GMWeapons:Write(instance)
 		dprint('Changed Weapons: SCAR-L - Pimped HE Bolt damage (GM) ...')
 
 
-		fireData.shot.initialSpeed.z = 15
+		fireData.shot.initialSpeed.z = 25
 		fireData.shot.projectileData:MakeWritable()
 		fireData.shot.projectileData = ProjectileEntityData(bulletData)
 
@@ -586,7 +574,7 @@ function GMWeapons:Write(instance)
 		local fireData = ebxEditUtils:GetWritableContainer(weaponData, 'weaponFiring.primaryFire')
 		local expData = VeniceExplosionEntityData(mmResources:GetInstance('crossbolt_he_exp'))
 
-		self:OverrideGMMagSize(weaponData, 25, -1)
+		self:OverrideGMMagSize(weaponData, 75, -1)
 
 		bulletData:MakeWritable()
 		bulletData.gravity = 0

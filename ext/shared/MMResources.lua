@@ -19,27 +19,67 @@ function MMResources:__init()
 -- SHOTGUNS --
 	self.MMResources["jackhammer"] = {}
 	self.MMResources["jackhammer"]["Partition"] = '014C428F-9A3C-4EA0-9F0C-873058E72438'
-	self.MMResources["jackhammer"]["Instance"] = 'C57F6902-E9BE-44B8-BCFA-9FFEB3A9A93C'
+	self.MMResources["jackhammer"]["Instance"] = 'C57F6902-E9BE-44B8-BCFA-9FFEB3A9A93C' -- SWBP
+
+	self.MMResources["jackhammer"]["FireFunction1"] = '3D4D9FCA-FD1A-4F7D-B278-C4676ACD15DF' -- FFD Buckshot
+	self.MMResources["jackhammer"]["FireFunction2"] = '607CF93E-0510-460C-917B-C056A8CADBBC' -- FFD Flechette
+	self.MMResources["jackhammer"]["FireFunction3"] = '20B53027-2589-465A-A1DF-DA737A940DAE' -- FFD 12G Frag
+	self.MMResources["jackhammer"]["FireFunction4"] = '91D7B0A3-AB80-4B91-96AC-94014C925478' -- FFD 12G slug
+--
 
 	self.MMResources["spas12"] = {}
 	self.MMResources["spas12"]["Partition"] = '37F8F2ED-CAC0-42E8-B77B-2300A99C3B0F'
 	self.MMResources["spas12"]["Instance"] = '27C36CA8-C16D-4D2B-B3DC-73E7AF91BE85'
 
+	self.MMResources["spas12"]["FireFunction1"] = 'B8F55C07-0412-4D22-9FAC-5DDA807244FB' -- FFD Buckshot
+	self.MMResources["spas12"]["FireFunction2"] = '9DC63986-E3C8-42C1-B431-88148AE1F1FA' -- FFD Flechette
+	self.MMResources["spas12"]["FireFunction3"] = 'FCC8977C-04BF-4BB8-9F31-DC4EF3D03313' -- FFD 12G Frag
+	self.MMResources["spas12"]["FireFunction4"] = '92F0B89D-0B88-456A-B57C-50BD7F36BADA' -- FFD 12G slug
+--
+
 	self.MMResources["dao12"] = {}
 	self.MMResources["dao12"]["Partition"] = 'CE832020-046A-11E0-A970-FF10D557871E'
 	self.MMResources["dao12"]["Instance"] = 'CA0D0869-3535-27A3-AF84-5E992D3C24A9'
+
+	self.MMResources["dao12"]["FireFunction1"] = '0A70FC78-2199-462F-92B8-209D2F9211E1' -- FFD Buckshot
+	self.MMResources["dao12"]["FireFunction2"] = 'C601149B-890A-453E-8C9D-AE9C8B4216F4' -- FFD Flechette
+	self.MMResources["dao12"]["FireFunction3"] = '4F027BBA-5AE6-4DE1-B900-4461FC479015' -- FFD 12G Frag
+	self.MMResources["dao12"]["FireFunction4"] = '38C05E70-31E9-4A41-A3CA-4FD74B079CF9' -- FFD 12G slug
+--
+
 
 	self.MMResources["m1014"] = {}
 	self.MMResources["m1014"]["Partition"] = '460F1126-2578-11E0-96DC-FF63A5537869'
 	self.MMResources["m1014"]["Instance"] = '707C6815-CFD6-FBE0-A5DE-915AFDA6350A'
 
+	self.MMResources["m1014"]["FireFunction1"] = '28FF9461-5D36-4A7D-B187-CE7A538E66CA' -- FFD Buckshot
+	self.MMResources["m1014"]["FireFunction2"] = '1D08ACCF-C1CA-4CF4-B550-18390BEF07ED' -- FFD Flechette
+	self.MMResources["m1014"]["FireFunction3"] = '0DBAD71F-95F4-47D4-93C1-C1A37E1BD9B2' -- FFD 12G Frag
+	self.MMResources["m1014"]["FireFunction4"] = '8F3DAC3A-72B1-48D2-8CBF-8CAD8DECC4B1' -- FFD 12G slug
+--
+
 	self.MMResources["saiga12k"] = {}
 	self.MMResources["saiga12k"]["Partition"] = 'A119D627-257B-11E0-96DC-FF63A5537869'
 	self.MMResources["saiga12k"]["Instance"] = '9CBF227A-BCD6-B540-622B-B70BBC85331F'
 
+	self.MMResources["saiga12k"]["FireFunction1"] = 'C84F534F-5075-4EC1-8CAD-60D09F61A8A9' -- FFD Buckshot
+	self.MMResources["saiga12k"]["FireFunction2"] = 'D360086F-0720-4BFA-B690-665FF90B942D' -- FFD Flechette
+	self.MMResources["saiga12k"]["FireFunction3"] = 'CF1D6D6E-242A-4A2F-B163-166F9701543E' -- FFD 12G Frag
+	self.MMResources["saiga12k"]["FireFunction4"] = 'E050498A-FD20-40DC-85A2-BCEB0C79ECAB' -- FFD 12G slug
+--
+	
 	self.MMResources["870mcs"] = {}
 	self.MMResources["870mcs"]["Partition"] = '50F905EA-E32B-11DF-931B-DC6D3E613E0F'
 	self.MMResources["870mcs"]["Instance"] = 'B76D7661-C812-64C2-322C-A269E40A1CD7'
+
+	self.MMResources["870mcs"]["FireFunction1"] = '23EA5A02-84C7-4163-9210-B26E6CB37DC4' -- FFD Buckshot
+	self.MMResources["870mcs"]["FireFunction2"] = '62ED76A6-D4B3-46D6-887C-F720E2FA3147' -- FFD Flechette
+	self.MMResources["870mcs"]["FireFunction3"] = 'DC77650A-A5AF-48E4-B2EF-BCE2FB8BD54A' -- FFD 12G Frag
+	self.MMResources["870mcs"]["FireFunction4"] = '71E1E801-312C-43E7-886D-30AB75ACC629' -- FFD 12G slug
+--
+
+-- --------------------------------------------------
+
 
 --
 -- this is shotgun ammo --
